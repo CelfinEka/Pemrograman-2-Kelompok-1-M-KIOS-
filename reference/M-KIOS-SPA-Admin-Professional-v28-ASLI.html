@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101d36">
+<title>M-KIOS | Customer & Admin Console V28</title>
+<style>
+:root{--navy:#101d36;--navy2:#1c3153;--blue:#2563eb;--blue-soft:#eff5ff;--bg:#f5f7fb;--line:#e5eaf2;--text:#1c2b42;--muted:#6c7b92;--white:#fff;--green:#13845b;--red:#b42335;--amber:#9b6000;--shadow:0 8px 30px rgba(28,48,84,.06)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}button:disabled{opacity:.5;cursor:not-allowed}a{color:var(--blue)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(25px,3vw,32px);letter-spacing:-.8px}h2{font-size:20px;letter-spacing:-.35px}h3{font-size:16px}p{line-height:1.55}small,.muted{color:var(--muted)}.btn{background:var(--blue);color:white;border-radius:10px;padding:11px 16px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}.btn:hover{filter:brightness(.96)}.btn.ghost{background:#fff;color:var(--text);border:1px solid var(--line)}.btn.soft{background:var(--blue-soft);color:var(--blue)}.btn.danger{background:#fff1f1;color:var(--red)}.btn.sm{padding:7px 10px;font-size:12px}.btn.wide{width:100%}.stack{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.space{justify-content:space-between}.panel{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.panel-head h2{margin:0}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;color:var(--blue)}.field{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:650}.field input,.field select,.field textarea,.search{border:1px solid #d6deeb;border-radius:10px;background:#fff;color:var(--text);outline:0;padding:11px 12px;min-width:0;width:100%;font-size:14px}.field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2563eb19}.field textarea{min-height:85px;resize:vertical}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.form-actions{display:flex;gap:10px;margin-top:18px;justify-content:flex-end}.hint{font-size:12px;color:var(--muted);font-weight:400}.notice{background:#f1f7ff;color:#29517d;border:1px solid #dceaff;padding:12px 15px;border-radius:10px;font-size:13px;margin-bottom:18px}.alert{background:#fff6ee;color:#92531f;border:1px solid #ffead2;padding:12px;border-radius:10px;font-size:13px}.badge{display:inline-flex;align-items:center;border-radius:99px;background:#f0f4fa;color:#52647d;padding:5px 9px;font-size:11px;font-weight:750}.badge.green{color:#096449;background:#e5f7ee}.badge.red{color:#a42635;background:#ffedf0}.badge.amber{color:#8c5900;background:#fff3d7}.table-scroll{overflow-x:auto}.table{border-collapse:collapse;width:100%;text-align:left;font-size:13px}.table th{color:var(--muted);font-size:11px;letter-spacing:.3px;text-transform:uppercase;background:#f8faff}.table th,.table td{padding:13px 12px;border-bottom:1px solid var(--line);white-space:nowrap}.table tr:last-child td{border:0}.table tbody tr:hover{background:#fafcff}.empty{text-align:center;padding:45px 15px;color:var(--muted)}.empty strong{display:block;color:var(--text);margin-bottom:6px}.divider{height:1px;background:var(--line);margin:18px 0}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:23px}.metric{padding:22px}.metric .num{font-size:27px;font-weight:800;letter-spacing:-.8px;margin:10px 0 5px}.metric .icon{font-size:20px}.metric small{font-size:12px}.two-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}.admin-layout{min-height:100vh;display:grid;grid-template-columns:246px minmax(0,1fr)}.sidebar{background:var(--navy);color:#dbe6fb;padding:28px 16px;display:flex;flex-direction:column;gap:5px}.brand{display:flex;gap:10px;align-items:center;font-weight:850;font-size:21px;color:white;padding:0 10px 24px}.brand-logo{background:#3073fa;width:36px;height:36px;display:grid;place-items:center;border-radius:11px}.side-label{font-size:10px;font-weight:800;letter-spacing:1.6px;opacity:.55;padding:19px 12px 7px}.nav-btn{width:100%;display:flex;gap:11px;align-items:center;text-align:left;background:transparent;color:#c8d6eb;border-radius:9px;padding:12px;font-weight:580;font-size:13px}.nav-btn:hover{background:#ffffff12}.nav-btn.active{background:#3167e5;color:#fff}.sidebar-foot{margin-top:auto;padding:18px 8px 0}.sidebar-foot .btn{width:100%;background:#243b5b;color:#fff}.admin-main{min-width:0;padding:27px clamp(18px,3vw,42px) 45px}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:27px}.admin-top p{margin:7px 0 0;color:var(--muted);font-size:13px}.admin-top h1{margin:0}.top-right{display:flex;gap:8px;align-items:center}.user-chip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:12px;font-weight:750}.section-head{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}.section-head p{margin:6px 0 0;color:var(--muted);font-size:13px}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0}.toolbar .search{width:280px;max-width:100%}.editing{border-color:#bcd2ff;background:linear-gradient(#fff,#fbfdff);margin-bottom:20px}.editing h2{margin-bottom:5px}.switch-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);gap:15px}.switch-row:last-child{border:0}.toggle{border:0;padding:7px 14px;border-radius:99px;background:#e9edf4;color:#52647d;font-weight:750;min-width:69px}.toggle.on{background:#e2f8ef;color:#0f7956}.inline-help{color:var(--muted);font-size:12px;margin-top:4px}.toast{position:fixed;bottom:22px;right:22px;z-index:2000;background:var(--navy);color:white;padding:12px 18px;border-radius:11px;box-shadow:0 12px 35px #0002;font-size:13px;max-width:min(400px,90vw)}.toast.error{background:#9b2432}.admin-login{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at top right,#dbe9ff,transparent 50%),#f5f7fc}.login-card{width:min(450px,100%);padding:34px}.login-card .brand{color:var(--navy);padding:0 0 20px}.login-card .field{margin-bottom:14px}.login-card .alert{margin-top:18px}.customer{min-height:100vh}.customer-nav{max-width:1160px;margin:auto;padding:22px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}.customer-nav .brand{color:var(--navy);padding:0;font-size:22px}.customer-container{max-width:1160px;padding:10px 22px 65px;margin:0 auto}.hero{background:linear-gradient(115deg,#111f3d 0%,#193d78 65%,#2862af 100%);border-radius:23px;padding:65px clamp(25px,6vw,74px);color:#fff;position:relative;overflow:hidden;min-height:350px}.hero:after{content:"";position:absolute;width:310px;height:310px;border:44px solid #ffffff13;border-radius:50%;right:-80px;top:20px}.hero h1{font-size:clamp(32px,4vw,49px);max-width:620px;margin:13px 0}.hero p{max-width:520px;color:#d4e6ff}.hero .btn{position:relative;z-index:1;background:#fff;color:#153a72;margin-top:15px}.customer-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.customer-cards .panel{min-height:140px}.ticket-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.ticket-option{border:2px solid var(--line);background:white;border-radius:15px;padding:22px;text-align:left;color:var(--text)}.ticket-option.chosen{border-color:var(--blue);background:#f4f8ff}.ticket-option .ticket-icon{font-size:30px;margin-bottom:12px}.ticket-option strong{display:block;font-size:16px}.ticket-option .price{font-size:19px;color:var(--blue);font-weight:800;margin-top:10px}.shop-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(270px,1fr);gap:18px}.order-summary{position:sticky;top:20px;align-self:start}.qty-control{display:flex;gap:14px;align-items:center}.qty-control button{height:34px;width:34px;background:#ecf3ff;color:var(--blue);border-radius:9px;font-size:18px}.summary-line{display:flex;justify-content:space-between;gap:15px;margin:12px 0;font-size:14px}.summary-line.total{font-size:20px;font-weight:800}.payment-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.payment-choice{border:2px solid var(--line);border-radius:12px;background:white;padding:17px;text-align:left}.payment-choice.chosen{border-color:var(--blue);background:var(--blue-soft)}.progress{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.progress span{padding:7px 12px;border-radius:99px;background:#e8edf6;color:#667b98;font-size:12px;font-weight:750}.progress span.on{background:#e4edff;color:#2459cf}.success-card{text-align:center;max-width:650px;margin:25px auto}.success-mark{background:#e0faed;color:var(--green);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:35px;margin:0 auto 15px}.print-ticket{max-width:370px;margin:15px auto;padding:22px;border:1px dashed #9fb5d3;border-radius:14px;text-align:center;background:#fff}.print-code{font-family:ui-monospace,monospace;font-size:16px;word-break:break-all;font-weight:800;letter-spacing:.5px;background:#eef5ff;padding:13px;border-radius:9px;margin:14px 0}.foot-note{font-size:12px;color:var(--muted);margin-top:22px}.error-text{font-size:12px;color:var(--red);margin:8px 0}.mobile-head{display:none}.admin-only-icon{position:fixed;right:18px;bottom:18px;border-radius:12px;background:var(--navy);color:white;width:46px;height:46px;box-shadow:0 10px 25px #172c5140;font-size:21px;z-index:300}.admin-only-icon:hover{background:var(--blue)}
+@media(max-width:1080px){.metric-grid{grid-template-columns:repeat(2,1fr)}.two-cols{grid-template-columns:1fr}.admin-layout{grid-template-columns:210px minmax(0,1fr)}}
+@media(max-width:730px){.admin-layout{display:block}.sidebar{padding:10px 15px;display:block}.brand{padding:8px}.sidebar nav{display:flex;overflow:auto;gap:5px}.sidebar .side-label,.sidebar-foot{display:none}.nav-btn{width:auto;white-space:nowrap}.admin-main{padding:20px 14px 35px}.admin-top{align-items:flex-start}.admin-top h1{font-size:23px}.user-chip{display:none}.form-grid,.shop-grid,.ticket-options,.customer-cards{grid-template-columns:1fr}.hero{padding:40px 25px;min-height:310px}.payment-options{grid-template-columns:1fr}.customer-container{padding:12px 16px 55px}.customer-nav{padding:17px}.metric-grid{gap:9px}.metric{padding:15px}.metric .num{font-size:22px}.panel{padding:17px}.top-right .btn{padding:9px}}
+@media print{.sidebar,.admin-top,.customer-nav,.progress,.btn,.admin-only-icon,.toast,.foot-note{display:none!important}.admin-layout{display:block}.admin-main{padding:0}.panel,.print-ticket{box-shadow:none}.customer-container{max-width:none}}
+
+/* V20 image and access management */
+body.read-only [data-action="addTicket"],body.read-only [data-action="addPromo"],body.read-only [data-edit-ticket],body.read-only [data-delete-ticket],body.read-only [data-toggle-ticket],body.read-only [data-edit-promo],body.read-only [data-delete-promo],body.read-only [data-toggle-promo],body.read-only [data-order-status],body.read-only [data-pay-toggle],body.read-only #contentForm,body.read-only #heroUpload,body.read-only [data-action="removeHero"]{display:none!important}
+.hero.has-image{background-position:center;background-size:cover}.hero.has-image:after{display:none}
+.image-preview{height:190px;width:100%;border:1px dashed #bdcbe0;border-radius:14px;background:#f2f5fa center/cover no-repeat;display:grid;place-items:center;color:#74849e;overflow:hidden}.image-preview img{width:100%;height:100%;object-fit:cover}.role-matrix td,.role-matrix th{text-align:center}.role-matrix td:first-child,.role-matrix th:first-child{text-align:left}.role-pill{font-size:11px;background:#eaf1ff;color:#2355ad;border-radius:20px;padding:5px 9px;font-weight:750}.help-box{padding:12px;border:1px solid #dae5f2;background:#f8faff;border-radius:10px;font-size:12px;color:#586b84}
+
+/* V21: satu pack menghasilkan satu barcode unik yang dapat dicetak */
+.ticket-print-sheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:22px 0}
+.ticket-print-sheet .print-ticket{max-width:none;margin:0;min-width:0;break-inside:avoid;page-break-inside:avoid;border:1px dashed #89a1c3;padding:20px}
+.barcode-svg{display:block;width:100%;max-width:330px;height:90px;margin:13px auto 4px;background:#fff}
+.barcode-text{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;letter-spacing:.3px;overflow-wrap:anywhere;font-weight:750}
+.print-tools{margin:16px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+.qr-box{width:220px;height:220px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;margin:12px auto;display:grid;place-items:center}
+.qr-box img{width:100%;height:100%;display:block;image-rendering:pixelated}.qr-box .qr-svg{display:block;width:100%;height:100%;image-rendering:pixelated}.qr-fallback{font-size:12px;color:#b42335;text-align:center;padding:20px}
+.ticket-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.modal-backdrop{position:fixed;inset:0;background:rgba(8,18,35,.55);display:flex;align-items:center;justify-content:center;z-index:4000;padding:18px}
+.modal-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 65px rgba(12,25,50,.22);width:min(860px,100%);max-height:90vh;overflow:auto;padding:24px}
+.scanner-shell{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:start}
+.scanner-preview{background:#091221;border-radius:16px;padding:12px;min-height:340px;display:grid;place-items:center}
+.scanner-preview video{width:100%;max-height:56vh;border-radius:12px;background:#000}
+.qr-preview-card{background:#f8fbff;border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.qr-preview-card img{width:min(100%,270px);image-rendering:pixelated;border-radius:12px;background:#fff;padding:10px;border:1px solid var(--line)}
+.scan-status{font-size:13px;color:var(--muted);margin-top:10px}
+@media(max-width:780px){.scanner-shell{grid-template-columns:1fr}.modal-card{padding:18px}}
+
+@media(max-width:690px){.ticket-print-sheet{grid-template-columns:1fr}}
+@media print{body{background:#fff!important}.customer-nav,.admin-only-icon,.progress,.print-tools,#printForm,.print-search-description,.no-print,.toast{display:none!important}.customer-container{max-width:none;padding:0}.ticket-print-sheet{grid-template-columns:repeat(2,minmax(0,1fr));gap:9mm;margin:0}.ticket-print-sheet .print-ticket{box-shadow:none!important;padding:5mm;border:1px dashed #777}.ticket-print-sheet .barcode-svg{height:27mm}.ticket-print-sheet .print-ticket h2{font-size:17px}.print-screen{box-shadow:none!important;padding:0!important;border:0!important}.print-screen>h1{display:none}.print-screen>.eyebrow{display:none}}
+
+.payment-page .section-head{align-items:flex-start}.payment-demo-wrap{margin-top:18px}.payment-demo{border:1px solid var(--line);border-radius:16px;background:#f8fbff;padding:20px}.payment-demo.qris-demo,.payment-demo.qris-success{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.payment-detail{display:grid;gap:12px}.wallet-code,.cash-order-preview{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:28px;letter-spacing:1.5px;font-weight:800;color:#17355f;background:#fff;border:1px dashed #9fb2ca;border-radius:12px;padding:16px;text-align:center;margin:14px 0}.cash-order-preview{font-size:22px}.checkout-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.checkout-summary>div{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff}.checkout-summary span,.checkout-summary b{display:block}.checkout-summary span{font-size:11px;color:var(--muted);margin-bottom:5px}.ticket-preview-panel{max-width:1100px;margin:20px auto}.ticket-preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}.ticket-preview-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.ticket-preview-card h3{margin:8px 0 4px}.ticket-pack{font-size:12px;color:var(--muted)}.qr-box.large{width:205px;height:205px}.preview-note{display:block;margin-top:10px;color:var(--muted);line-height:1.5}.badge.green{border-color:#9ed3b1;background:#effaf2;color:#237a3f}.print-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0}.payment-demo .qr-box{margin:10px auto}.payment-demo-wrap .qr-box{margin-left:0;margin-right:0}.qris-success{margin:18px 0}.ticket-preview-panel .btn{margin-top:12px}
+@media(max-width:780px){.payment-demo.qris-demo,.payment-demo.qris-success{grid-template-columns:1fr}.checkout-summary{grid-template-columns:1fr 1fr}}
+
+.scanner-stage{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr);gap:18px;margin-bottom:20px}.scanner-view{background:#0b1830;border-radius:16px;min-height:310px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:15px;color:#e4edff}.scanner-view video{width:100%;max-height:430px;object-fit:cover;border-radius:11px;background:#050b15;min-height:245px}.scan-state{font-size:13px;margin:12px 0;line-height:1.5}.scan-result{border-radius:13px;padding:15px;margin:14px 0;border:1px solid #bdd3f5;background:#f0f6ff}.scan-result.ok{border-color:#a1e5bf;background:#e9f9ef;color:#11633a}.scan-result.bad{border-color:#ffc7c7;background:#fff0f0;color:#922a34}.scanner-controls{display:flex;gap:10px;flex-wrap:wrap}.scanner-manual{display:grid;gap:12px}.scanner-manual textarea{width:100%;min-height:100px;font:13px ui-monospace,monospace}.scanner-state-help{font-size:12px;color:#6c7b92}@media(max-width:900px){.scanner-stage{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div id="app"></div><div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+window.MKQRCodeCore = (()=>{
+  const modules = Object.create(null);
+  const cache = Object.create(null);
+  function normalize(name){return String(name||'').replace(/^\.\/?/,'').replace(/\.js$/,'');}
+modules["QR8bitByte"]=function(module,exports,require){
+var QRMode = require('./QRMode');
+
+function QR8bitByte(data) {
+	this.mode = QRMode.MODE_8BIT_BYTE;
+	this.data = data;
+}
+
+QR8bitByte.prototype = {
+
+	getLength : function() {
+		return this.data.length;
+	},
+	
+	write : function(buffer) {
+		for (var i = 0; i < this.data.length; i++) {
+			// not JIS ...
+			buffer.put(this.data.charCodeAt(i), 8);
+		}
+	}
+};
+
+module.exports = QR8bitByte;
+
+};
+modules["QRBitBuffer"]=function(module,exports,require){
+function QRBitBuffer() {
+	this.buffer = [];
+	this.length = 0;
+}
+
+QRBitBuffer.prototype = {
+
+	get : function(index) {
+		var bufIndex = Math.floor(index / 8);
+		return ( (this.buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
+	},
+	
+	put : function(num, length) {
+		for (var i = 0; i < length; i++) {
+			this.putBit( ( (num >>> (length - i - 1) ) & 1) == 1);
+		}
+	},
+	
+	getLengthInBits : function() {
+		return this.length;
+	},
+	
+	putBit : function(bit) {
+	
+		var bufIndex = Math.floor(this.length / 8);
+		if (this.buffer.length <= bufIndex) {
+			this.buffer.push(0);
+		}
+	
+		if (bit) {
+			this.buffer[bufIndex] |= (0x80 >>> (this.length % 8) );
+		}
+	
+		this.length++;
+	}
+};
+
+module.exports = QRBitBuffer;
+
+};
+modules["QRErrorCorrectLevel"]=function(module,exports,require){
+module.exports = {
+	L : 1,
+	M : 0,
+	Q : 3,
+	H : 2
+};
+
+
+};
+modules["QRMaskPattern"]=function(module,exports,require){
+module.exports = {
+	PATTERN000 : 0,
+	PATTERN001 : 1,
+	PATTERN010 : 2,
+	PATTERN011 : 3,
+	PATTERN100 : 4,
+	PATTERN101 : 5,
+	PATTERN110 : 6,
+	PATTERN111 : 7
+};
+
+};
+modules["QRMath"]=function(module,exports,require){
+var QRMath = {
+
+	glog : function(n) {
+	
+		if (n < 1) {
+			throw new Error("glog(" + n + ")");
+		}
+		
+		return QRMath.LOG_TABLE[n];
+	},
+	
+	gexp : function(n) {
+	
+		while (n < 0) {
+			n += 255;
+		}
+	
+		while (n >= 256) {
+			n -= 255;
+		}
+	
+		return QRMath.EXP_TABLE[n];
+	},
+	
+	EXP_TABLE : new Array(256),
+	
+	LOG_TABLE : new Array(256)
+
+};
+	
+for (var i = 0; i < 8; i++) {
+	QRMath.EXP_TABLE[i] = 1 << i;
+}
+for (var i = 8; i < 256; i++) {
+	QRMath.EXP_TABLE[i] = QRMath.EXP_TABLE[i - 4]
+		^ QRMath.EXP_TABLE[i - 5]
+		^ QRMath.EXP_TABLE[i - 6]
+		^ QRMath.EXP_TABLE[i - 8];
+}
+for (var i = 0; i < 255; i++) {
+	QRMath.LOG_TABLE[QRMath.EXP_TABLE[i] ] = i;
+}
+
+module.exports = QRMath;
+
+};
+modules["QRMode"]=function(module,exports,require){
+module.exports = {
+    MODE_NUMBER :       1 << 0,
+    MODE_ALPHA_NUM :    1 << 1,
+    MODE_8BIT_BYTE :    1 << 2,
+    MODE_KANJI :        1 << 3
+};
+
+};
+modules["QRPolynomial"]=function(module,exports,require){
+var QRMath = require('./QRMath');
+
+function QRPolynomial(num, shift) {
+	if (num.length === undefined) {
+		throw new Error(num.length + "/" + shift);
+	}
+
+	var offset = 0;
+
+	while (offset < num.length && num[offset] === 0) {
+		offset++;
+	}
+
+	this.num = new Array(num.length - offset + shift);
+	for (var i = 0; i < num.length - offset; i++) {
+		this.num[i] = num[i + offset];
+	}
+}
+
+QRPolynomial.prototype = {
+
+	get : function(index) {
+		return this.num[index];
+	},
+	
+	getLength : function() {
+		return this.num.length;
+	},
+	
+	multiply : function(e) {
+	
+		var num = new Array(this.getLength() + e.getLength() - 1);
+	
+		for (var i = 0; i < this.getLength(); i++) {
+			for (var j = 0; j < e.getLength(); j++) {
+				num[i + j] ^= QRMath.gexp(QRMath.glog(this.get(i) ) + QRMath.glog(e.get(j) ) );
+			}
+		}
+	
+		return new QRPolynomial(num, 0);
+	},
+	
+	mod : function(e) {
+	
+		if (this.getLength() - e.getLength() < 0) {
+			return this;
+		}
+	
+		var ratio = QRMath.glog(this.get(0) ) - QRMath.glog(e.get(0) );
+	
+		var num = new Array(this.getLength() );
+		
+		for (var i = 0; i < this.getLength(); i++) {
+			num[i] = this.get(i);
+		}
+		
+		for (var x = 0; x < e.getLength(); x++) {
+			num[x] ^= QRMath.gexp(QRMath.glog(e.get(x) ) + ratio);
+		}
+	
+		// recursive call
+		return new QRPolynomial(num, 0).mod(e);
+	}
+};
+
+module.exports = QRPolynomial;
+
+};
+modules["QRRSBlock"]=function(module,exports,require){
+var QRErrorCorrectLevel = require('./QRErrorCorrectLevel');
+
+function QRRSBlock(totalCount, dataCount) {
+	this.totalCount = totalCount;
+	this.dataCount  = dataCount;
+}
+
+QRRSBlock.RS_BLOCK_TABLE = [
+
+	// L
+	// M
+	// Q
+	// H
+
+	// 1
+	[1, 26, 19],
+	[1, 26, 16],
+	[1, 26, 13],
+	[1, 26, 9],
+	
+	// 2
+	[1, 44, 34],
+	[1, 44, 28],
+	[1, 44, 22],
+	[1, 44, 16],
+
+	// 3
+	[1, 70, 55],
+	[1, 70, 44],
+	[2, 35, 17],
+	[2, 35, 13],
+
+	// 4		
+	[1, 100, 80],
+	[2, 50, 32],
+	[2, 50, 24],
+	[4, 25, 9],
+	
+	// 5
+	[1, 134, 108],
+	[2, 67, 43],
+	[2, 33, 15, 2, 34, 16],
+	[2, 33, 11, 2, 34, 12],
+	
+	// 6
+	[2, 86, 68],
+	[4, 43, 27],
+	[4, 43, 19],
+	[4, 43, 15],
+	
+	// 7		
+	[2, 98, 78],
+	[4, 49, 31],
+	[2, 32, 14, 4, 33, 15],
+	[4, 39, 13, 1, 40, 14],
+	
+	// 8
+	[2, 121, 97],
+	[2, 60, 38, 2, 61, 39],
+	[4, 40, 18, 2, 41, 19],
+	[4, 40, 14, 2, 41, 15],
+	
+	// 9
+	[2, 146, 116],
+	[3, 58, 36, 2, 59, 37],
+	[4, 36, 16, 4, 37, 17],
+	[4, 36, 12, 4, 37, 13],
+	
+	// 10		
+	[2, 86, 68, 2, 87, 69],
+	[4, 69, 43, 1, 70, 44],
+	[6, 43, 19, 2, 44, 20],
+	[6, 43, 15, 2, 44, 16],
+
+	// 11
+	[4, 101, 81],
+	[1, 80, 50, 4, 81, 51],
+	[4, 50, 22, 4, 51, 23],
+	[3, 36, 12, 8, 37, 13],
+
+	// 12
+	[2, 116, 92, 2, 117, 93],
+	[6, 58, 36, 2, 59, 37],
+	[4, 46, 20, 6, 47, 21],
+	[7, 42, 14, 4, 43, 15],
+
+	// 13
+	[4, 133, 107],
+	[8, 59, 37, 1, 60, 38],
+	[8, 44, 20, 4, 45, 21],
+	[12, 33, 11, 4, 34, 12],
+
+	// 14
+	[3, 145, 115, 1, 146, 116],
+	[4, 64, 40, 5, 65, 41],
+	[11, 36, 16, 5, 37, 17],
+	[11, 36, 12, 5, 37, 13],
+
+	// 15
+	[5, 109, 87, 1, 110, 88],
+	[5, 65, 41, 5, 66, 42],
+	[5, 54, 24, 7, 55, 25],
+	[11, 36, 12],
+
+	// 16
+	[5, 122, 98, 1, 123, 99],
+	[7, 73, 45, 3, 74, 46],
+	[15, 43, 19, 2, 44, 20],
+	[3, 45, 15, 13, 46, 16],
+
+	// 17
+	[1, 135, 107, 5, 136, 108],
+	[10, 74, 46, 1, 75, 47],
+	[1, 50, 22, 15, 51, 23],
+	[2, 42, 14, 17, 43, 15],
+
+	// 18
+	[5, 150, 120, 1, 151, 121],
+	[9, 69, 43, 4, 70, 44],
+	[17, 50, 22, 1, 51, 23],
+	[2, 42, 14, 19, 43, 15],
+
+	// 19
+	[3, 141, 113, 4, 142, 114],
+	[3, 70, 44, 11, 71, 45],
+	[17, 47, 21, 4, 48, 22],
+	[9, 39, 13, 16, 40, 14],
+
+	// 20
+	[3, 135, 107, 5, 136, 108],
+	[3, 67, 41, 13, 68, 42],
+	[15, 54, 24, 5, 55, 25],
+	[15, 43, 15, 10, 44, 16],
+
+	// 21
+	[4, 144, 116, 4, 145, 117],
+	[17, 68, 42],
+	[17, 50, 22, 6, 51, 23],
+	[19, 46, 16, 6, 47, 17],
+
+	// 22
+	[2, 139, 111, 7, 140, 112],
+	[17, 74, 46],
+	[7, 54, 24, 16, 55, 25],
+	[34, 37, 13],
+
+	// 23
+	[4, 151, 121, 5, 152, 122],
+	[4, 75, 47, 14, 76, 48],
+	[11, 54, 24, 14, 55, 25],
+	[16, 45, 15, 14, 46, 16],
+
+	// 24
+	[6, 147, 117, 4, 148, 118],
+	[6, 73, 45, 14, 74, 46],
+	[11, 54, 24, 16, 55, 25],
+	[30, 46, 16, 2, 47, 17],
+
+	// 25
+	[8, 132, 106, 4, 133, 107],
+	[8, 75, 47, 13, 76, 48],
+	[7, 54, 24, 22, 55, 25],
+	[22, 45, 15, 13, 46, 16],
+
+	// 26
+	[10, 142, 114, 2, 143, 115],
+	[19, 74, 46, 4, 75, 47],
+	[28, 50, 22, 6, 51, 23],
+	[33, 46, 16, 4, 47, 17],
+
+	// 27
+	[8, 152, 122, 4, 153, 123],
+	[22, 73, 45, 3, 74, 46],
+	[8, 53, 23, 26, 54, 24],
+	[12, 45, 15, 28, 46, 16],
+
+	// 28
+	[3, 147, 117, 10, 148, 118],
+	[3, 73, 45, 23, 74, 46],
+	[4, 54, 24, 31, 55, 25],
+	[11, 45, 15, 31, 46, 16],
+
+	// 29
+	[7, 146, 116, 7, 147, 117],
+	[21, 73, 45, 7, 74, 46],
+	[1, 53, 23, 37, 54, 24],
+	[19, 45, 15, 26, 46, 16],
+
+	// 30
+	[5, 145, 115, 10, 146, 116],
+	[19, 75, 47, 10, 76, 48],
+	[15, 54, 24, 25, 55, 25],
+	[23, 45, 15, 25, 46, 16],
+
+	// 31
+	[13, 145, 115, 3, 146, 116],
+	[2, 74, 46, 29, 75, 47],
+	[42, 54, 24, 1, 55, 25],
+	[23, 45, 15, 28, 46, 16],
+
+	// 32
+	[17, 145, 115],
+	[10, 74, 46, 23, 75, 47],
+	[10, 54, 24, 35, 55, 25],
+	[19, 45, 15, 35, 46, 16],
+
+	// 33
+	[17, 145, 115, 1, 146, 116],
+	[14, 74, 46, 21, 75, 47],
+	[29, 54, 24, 19, 55, 25],
+	[11, 45, 15, 46, 46, 16],
+
+	// 34
+	[13, 145, 115, 6, 146, 116],
+	[14, 74, 46, 23, 75, 47],
+	[44, 54, 24, 7, 55, 25],
+	[59, 46, 16, 1, 47, 17],
+
+	// 35
+	[12, 151, 121, 7, 152, 122],
+	[12, 75, 47, 26, 76, 48],
+	[39, 54, 24, 14, 55, 25],
+	[22, 45, 15, 41, 46, 16],
+
+	// 36
+	[6, 151, 121, 14, 152, 122],
+	[6, 75, 47, 34, 76, 48],
+	[46, 54, 24, 10, 55, 25],
+	[2, 45, 15, 64, 46, 16],
+
+	// 37
+	[17, 152, 122, 4, 153, 123],
+	[29, 74, 46, 14, 75, 47],
+	[49, 54, 24, 10, 55, 25],
+	[24, 45, 15, 46, 46, 16],
+
+	// 38
+	[4, 152, 122, 18, 153, 123],
+	[13, 74, 46, 32, 75, 47],
+	[48, 54, 24, 14, 55, 25],
+	[42, 45, 15, 32, 46, 16],
+
+	// 39
+	[20, 147, 117, 4, 148, 118],
+	[40, 75, 47, 7, 76, 48],
+	[43, 54, 24, 22, 55, 25],
+	[10, 45, 15, 67, 46, 16],
+
+	// 40
+	[19, 148, 118, 6, 149, 119],
+	[18, 75, 47, 31, 76, 48],
+	[34, 54, 24, 34, 55, 25],
+	[20, 45, 15, 61, 46, 16]
+];
+
+QRRSBlock.getRSBlocks = function(typeNumber, errorCorrectLevel) {
+	
+	var rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel);
+	
+	if (rsBlock === undefined) {
+		throw new Error("bad rs block @ typeNumber:" + typeNumber + "/errorCorrectLevel:" + errorCorrectLevel);
+	}
+
+	var length = rsBlock.length / 3;
+	
+	var list = [];
+	
+	for (var i = 0; i < length; i++) {
+
+		var count = rsBlock[i * 3 + 0];
+		var totalCount = rsBlock[i * 3 + 1];
+		var dataCount  = rsBlock[i * 3 + 2];
+
+		for (var j = 0; j < count; j++) {
+			list.push(new QRRSBlock(totalCount, dataCount) );	
+		}
+	}
+	
+	return list;
+};
+
+QRRSBlock.getRsBlockTable = function(typeNumber, errorCorrectLevel) {
+
+	switch(errorCorrectLevel) {
+	case QRErrorCorrectLevel.L :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
+	case QRErrorCorrectLevel.M :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
+	case QRErrorCorrectLevel.Q :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
+	case QRErrorCorrectLevel.H :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
+	default :
+		return undefined;
+	}
+};
+
+module.exports = QRRSBlock;
+
+};
+modules["QRUtil"]=function(module,exports,require){
+var QRMode = require('./QRMode');
+var QRPolynomial = require('./QRPolynomial');
+var QRMath = require('./QRMath');
+var QRMaskPattern = require('./QRMaskPattern');
+
+var QRUtil = {
+
+    PATTERN_POSITION_TABLE : [
+        [],
+        [6, 18],
+        [6, 22],
+        [6, 26],
+        [6, 30],
+        [6, 34],
+        [6, 22, 38],
+        [6, 24, 42],
+        [6, 26, 46],
+        [6, 28, 50],
+        [6, 30, 54],        
+        [6, 32, 58],
+        [6, 34, 62],
+        [6, 26, 46, 66],
+        [6, 26, 48, 70],
+        [6, 26, 50, 74],
+        [6, 30, 54, 78],
+        [6, 30, 56, 82],
+        [6, 30, 58, 86],
+        [6, 34, 62, 90],
+        [6, 28, 50, 72, 94],
+        [6, 26, 50, 74, 98],
+        [6, 30, 54, 78, 102],
+        [6, 28, 54, 80, 106],
+        [6, 32, 58, 84, 110],
+        [6, 30, 58, 86, 114],
+        [6, 34, 62, 90, 118],
+        [6, 26, 50, 74, 98, 122],
+        [6, 30, 54, 78, 102, 126],
+        [6, 26, 52, 78, 104, 130],
+        [6, 30, 56, 82, 108, 134],
+        [6, 34, 60, 86, 112, 138],
+        [6, 30, 58, 86, 114, 142],
+        [6, 34, 62, 90, 118, 146],
+        [6, 30, 54, 78, 102, 126, 150],
+        [6, 24, 50, 76, 102, 128, 154],
+        [6, 28, 54, 80, 106, 132, 158],
+        [6, 32, 58, 84, 110, 136, 162],
+        [6, 26, 54, 82, 110, 138, 166],
+        [6, 30, 58, 86, 114, 142, 170]
+    ],
+
+    G15 : (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0),
+    G18 : (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0),
+    G15_MASK : (1 << 14) | (1 << 12) | (1 << 10)    | (1 << 4) | (1 << 1),
+
+    getBCHTypeInfo : function(data) {
+        var d = data << 10;
+        while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) >= 0) {
+            d ^= (QRUtil.G15 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) ) );    
+        }
+        return ( (data << 10) | d) ^ QRUtil.G15_MASK;
+    },
+
+    getBCHTypeNumber : function(data) {
+        var d = data << 12;
+        while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) >= 0) {
+            d ^= (QRUtil.G18 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) ) );    
+        }
+        return (data << 12) | d;
+    },
+
+    getBCHDigit : function(data) {
+
+        var digit = 0;
+
+        while (data !== 0) {
+            digit++;
+            data >>>= 1;
+        }
+
+        return digit;
+    },
+
+    getPatternPosition : function(typeNumber) {
+        return QRUtil.PATTERN_POSITION_TABLE[typeNumber - 1];
+    },
+
+    getMask : function(maskPattern, i, j) {
+        
+        switch (maskPattern) {
+            
+        case QRMaskPattern.PATTERN000 : return (i + j) % 2 === 0;
+        case QRMaskPattern.PATTERN001 : return i % 2 === 0;
+        case QRMaskPattern.PATTERN010 : return j % 3 === 0;
+        case QRMaskPattern.PATTERN011 : return (i + j) % 3 === 0;
+        case QRMaskPattern.PATTERN100 : return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 === 0;
+        case QRMaskPattern.PATTERN101 : return (i * j) % 2 + (i * j) % 3 === 0;
+        case QRMaskPattern.PATTERN110 : return ( (i * j) % 2 + (i * j) % 3) % 2 === 0;
+        case QRMaskPattern.PATTERN111 : return ( (i * j) % 3 + (i + j) % 2) % 2 === 0;
+
+        default :
+            throw new Error("bad maskPattern:" + maskPattern);
+        }
+    },
+
+    getErrorCorrectPolynomial : function(errorCorrectLength) {
+
+        var a = new QRPolynomial([1], 0);
+
+        for (var i = 0; i < errorCorrectLength; i++) {
+            a = a.multiply(new QRPolynomial([1, QRMath.gexp(i)], 0) );
+        }
+
+        return a;
+    },
+
+    getLengthInBits : function(mode, type) {
+
+        if (1 <= type && type < 10) {
+
+            // 1 - 9
+
+            switch(mode) {
+            case QRMode.MODE_NUMBER     : return 10;
+            case QRMode.MODE_ALPHA_NUM  : return 9;
+            case QRMode.MODE_8BIT_BYTE  : return 8;
+            case QRMode.MODE_KANJI      : return 8;
+            default :
+                throw new Error("mode:" + mode);
+            }
+
+        } else if (type < 27) {
+
+            // 10 - 26
+
+            switch(mode) {
+            case QRMode.MODE_NUMBER     : return 12;
+            case QRMode.MODE_ALPHA_NUM  : return 11;
+            case QRMode.MODE_8BIT_BYTE  : return 16;
+            case QRMode.MODE_KANJI      : return 10;
+            default :
+                throw new Error("mode:" + mode);
+            }
+
+        } else if (type < 41) {
+
+            // 27 - 40
+
+            switch(mode) {
+            case QRMode.MODE_NUMBER     : return 14;
+            case QRMode.MODE_ALPHA_NUM  : return 13;
+            case QRMode.MODE_8BIT_BYTE  : return 16;
+            case QRMode.MODE_KANJI      : return 12;
+            default :
+                throw new Error("mode:" + mode);
+            }
+
+        } else {
+            throw new Error("type:" + type);
+        }
+    },
+
+    getLostPoint : function(qrCode) {
+        
+        var moduleCount = qrCode.getModuleCount();
+        var lostPoint = 0;
+        var row = 0; 
+        var col = 0;
+
+        
+        // LEVEL1
+        
+        for (row = 0; row < moduleCount; row++) {
+
+            for (col = 0; col < moduleCount; col++) {
+
+                var sameCount = 0;
+                var dark = qrCode.isDark(row, col);
+
+                for (var r = -1; r <= 1; r++) {
+
+                    if (row + r < 0 || moduleCount <= row + r) {
+                        continue;
+                    }
+
+                    for (var c = -1; c <= 1; c++) {
+
+                        if (col + c < 0 || moduleCount <= col + c) {
+                            continue;
+                        }
+
+                        if (r === 0 && c === 0) {
+                            continue;
+                        }
+
+                        if (dark === qrCode.isDark(row + r, col + c) ) {
+                            sameCount++;
+                        }
+                    }
+                }
+
+                if (sameCount > 5) {
+                    lostPoint += (3 + sameCount - 5);
+                }
+            }
+        }
+
+        // LEVEL2
+
+        for (row = 0; row < moduleCount - 1; row++) {
+            for (col = 0; col < moduleCount - 1; col++) {
+                var count = 0;
+                if (qrCode.isDark(row,     col    ) ) count++;
+                if (qrCode.isDark(row + 1, col    ) ) count++;
+                if (qrCode.isDark(row,     col + 1) ) count++;
+                if (qrCode.isDark(row + 1, col + 1) ) count++;
+                if (count === 0 || count === 4) {
+                    lostPoint += 3;
+                }
+            }
+        }
+
+        // LEVEL3
+
+        for (row = 0; row < moduleCount; row++) {
+            for (col = 0; col < moduleCount - 6; col++) {
+                if (qrCode.isDark(row, col) && 
+                        !qrCode.isDark(row, col + 1) && 
+                         qrCode.isDark(row, col + 2) && 
+                         qrCode.isDark(row, col + 3) && 
+                         qrCode.isDark(row, col + 4) && 
+                        !qrCode.isDark(row, col + 5) && 
+                         qrCode.isDark(row, col + 6) ) {
+                    lostPoint += 40;
+                }
+            }
+        }
+
+        for (col = 0; col < moduleCount; col++) {
+            for (row = 0; row < moduleCount - 6; row++) {
+                if (qrCode.isDark(row, col) &&
+                        !qrCode.isDark(row + 1, col) &&
+                         qrCode.isDark(row + 2, col) &&
+                         qrCode.isDark(row + 3, col) &&
+                         qrCode.isDark(row + 4, col) &&
+                        !qrCode.isDark(row + 5, col) &&
+                         qrCode.isDark(row + 6, col) ) {
+                    lostPoint += 40;
+                }
+            }
+        }
+
+        // LEVEL4
+        
+        var darkCount = 0;
+
+        for (col = 0; col < moduleCount; col++) {
+            for (row = 0; row < moduleCount; row++) {
+                if (qrCode.isDark(row, col) ) {
+                    darkCount++;
+                }
+            }
+        }
+        
+        var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
+        lostPoint += ratio * 10;
+
+        return lostPoint;       
+    }
+
+};
+
+module.exports = QRUtil;
+
+};
+modules["index"]=function(module,exports,require){
+//---------------------------------------------------------------------
+// QRCode for JavaScript
+//
+// Copyright (c) 2009 Kazuhiko Arase
+//
+// URL: http://www.d-project.com/
+//
+// Licensed under the MIT license:
+//   http://www.opensource.org/licenses/mit-license.php
+//
+// The word "QR Code" is registered trademark of 
+// DENSO WAVE INCORPORATED
+//   http://www.denso-wave.com/qrcode/faqpatent-e.html
+//
+//---------------------------------------------------------------------
+// Modified to work in node for this project (and some refactoring)
+//---------------------------------------------------------------------
+
+var QR8bitByte = require('./QR8bitByte');
+var QRUtil = require('./QRUtil');
+var QRPolynomial = require('./QRPolynomial');
+var QRRSBlock = require('./QRRSBlock');
+var QRBitBuffer = require('./QRBitBuffer');
+
+function QRCode(typeNumber, errorCorrectLevel) {
+	this.typeNumber = typeNumber;
+	this.errorCorrectLevel = errorCorrectLevel;
+	this.modules = null;
+	this.moduleCount = 0;
+	this.dataCache = null;
+	this.dataList = [];
+}
+
+QRCode.prototype = {
+	
+	addData : function(data) {
+		var newData = new QR8bitByte(data);
+		this.dataList.push(newData);
+		this.dataCache = null;
+	},
+	
+	isDark : function(row, col) {
+		if (row < 0 || this.moduleCount <= row || col < 0 || this.moduleCount <= col) {
+			throw new Error(row + "," + col);
+		}
+		return this.modules[row][col];
+	},
+
+	getModuleCount : function() {
+		return this.moduleCount;
+	},
+	
+	make : function() {
+		// Calculate automatically typeNumber if provided is < 1
+		if (this.typeNumber < 1 ){
+			var typeNumber = 1;
+			for (typeNumber = 1; typeNumber < 40; typeNumber++) {
+				var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, this.errorCorrectLevel);
+
+				var buffer = new QRBitBuffer();
+				var totalDataCount = 0;
+				for (var i = 0; i < rsBlocks.length; i++) {
+					totalDataCount += rsBlocks[i].dataCount;
+				}
+
+				for (var x = 0; x < this.dataList.length; x++) {
+					var data = this.dataList[x];
+					buffer.put(data.mode, 4);
+					buffer.put(data.getLength(), QRUtil.getLengthInBits(data.mode, typeNumber) );
+					data.write(buffer);
+				}
+				if (buffer.getLengthInBits() <= totalDataCount * 8)
+					break;
+			}
+			this.typeNumber = typeNumber;
+		}
+		this.makeImpl(false, this.getBestMaskPattern() );
+	},
+	
+	makeImpl : function(test, maskPattern) {
+		
+		this.moduleCount = this.typeNumber * 4 + 17;
+		this.modules = new Array(this.moduleCount);
+		
+		for (var row = 0; row < this.moduleCount; row++) {
+			
+			this.modules[row] = new Array(this.moduleCount);
+			
+			for (var col = 0; col < this.moduleCount; col++) {
+				this.modules[row][col] = null;//(col + row) % 3;
+			}
+		}
+	
+		this.setupPositionProbePattern(0, 0);
+		this.setupPositionProbePattern(this.moduleCount - 7, 0);
+		this.setupPositionProbePattern(0, this.moduleCount - 7);
+		this.setupPositionAdjustPattern();
+		this.setupTimingPattern();
+		this.setupTypeInfo(test, maskPattern);
+		
+		if (this.typeNumber >= 7) {
+			this.setupTypeNumber(test);
+		}
+	
+		if (this.dataCache === null) {
+			this.dataCache = QRCode.createData(this.typeNumber, this.errorCorrectLevel, this.dataList);
+		}
+	
+		this.mapData(this.dataCache, maskPattern);
+	},
+
+	setupPositionProbePattern : function(row, col)  {
+		
+		for (var r = -1; r <= 7; r++) {
+			
+			if (row + r <= -1 || this.moduleCount <= row + r) continue;
+			
+			for (var c = -1; c <= 7; c++) {
+				
+				if (col + c <= -1 || this.moduleCount <= col + c) continue;
+				
+				if ( (0 <= r && r <= 6 && (c === 0 || c === 6) ) || 
+                     (0 <= c && c <= 6 && (r === 0 || r === 6) ) || 
+                     (2 <= r && r <= 4 && 2 <= c && c <= 4) ) {
+					this.modules[row + r][col + c] = true;
+				} else {
+					this.modules[row + r][col + c] = false;
+				}
+			}		
+		}		
+	},
+	
+	getBestMaskPattern : function() {
+	
+		var minLostPoint = 0;
+		var pattern = 0;
+	
+		for (var i = 0; i < 8; i++) {
+			
+			this.makeImpl(true, i);
+	
+			var lostPoint = QRUtil.getLostPoint(this);
+	
+			if (i === 0 || minLostPoint >  lostPoint) {
+				minLostPoint = lostPoint;
+				pattern = i;
+			}
+		}
+	
+		return pattern;
+	},
+	
+	createMovieClip : function(target_mc, instance_name, depth) {
+	
+		var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth);
+		var cs = 1;
+	
+		this.make();
+
+		for (var row = 0; row < this.modules.length; row++) {
+			
+			var y = row * cs;
+			
+			for (var col = 0; col < this.modules[row].length; col++) {
+	
+				var x = col * cs;
+				var dark = this.modules[row][col];
+			
+				if (dark) {
+					qr_mc.beginFill(0, 100);
+					qr_mc.moveTo(x, y);
+					qr_mc.lineTo(x + cs, y);
+					qr_mc.lineTo(x + cs, y + cs);
+					qr_mc.lineTo(x, y + cs);
+					qr_mc.endFill();
+				}
+			}
+		}
+		
+		return qr_mc;
+	},
+
+	setupTimingPattern : function() {
+		
+		for (var r = 8; r < this.moduleCount - 8; r++) {
+			if (this.modules[r][6] !== null) {
+				continue;
+			}
+			this.modules[r][6] = (r % 2 === 0);
+		}
+	
+		for (var c = 8; c < this.moduleCount - 8; c++) {
+			if (this.modules[6][c] !== null) {
+				continue;
+			}
+			this.modules[6][c] = (c % 2 === 0);
+		}
+	},
+	
+	setupPositionAdjustPattern : function() {
+	
+		var pos = QRUtil.getPatternPosition(this.typeNumber);
+		
+		for (var i = 0; i < pos.length; i++) {
+		
+			for (var j = 0; j < pos.length; j++) {
+			
+				var row = pos[i];
+				var col = pos[j];
+				
+				if (this.modules[row][col] !== null) {
+					continue;
+				}
+				
+				for (var r = -2; r <= 2; r++) {
+				
+					for (var c = -2; c <= 2; c++) {
+					
+						if (Math.abs(r) === 2 || 
+                            Math.abs(c) === 2 ||
+                            (r === 0 && c === 0) ) {
+							this.modules[row + r][col + c] = true;
+						} else {
+							this.modules[row + r][col + c] = false;
+						}
+					}
+				}
+			}
+		}
+	},
+	
+	setupTypeNumber : function(test) {
+	
+		var bits = QRUtil.getBCHTypeNumber(this.typeNumber);
+        var mod;
+	
+		for (var i = 0; i < 18; i++) {
+			mod = (!test && ( (bits >> i) & 1) === 1);
+			this.modules[Math.floor(i / 3)][i % 3 + this.moduleCount - 8 - 3] = mod;
+		}
+	
+		for (var x = 0; x < 18; x++) {
+			mod = (!test && ( (bits >> x) & 1) === 1);
+			this.modules[x % 3 + this.moduleCount - 8 - 3][Math.floor(x / 3)] = mod;
+		}
+	},
+	
+	setupTypeInfo : function(test, maskPattern) {
+	
+		var data = (this.errorCorrectLevel << 3) | maskPattern;
+		var bits = QRUtil.getBCHTypeInfo(data);
+        var mod;
+	
+		// vertical		
+		for (var v = 0; v < 15; v++) {
+	
+			mod = (!test && ( (bits >> v) & 1) === 1);
+	
+			if (v < 6) {
+				this.modules[v][8] = mod;
+			} else if (v < 8) {
+				this.modules[v + 1][8] = mod;
+			} else {
+				this.modules[this.moduleCount - 15 + v][8] = mod;
+			}
+		}
+	
+		// horizontal
+		for (var h = 0; h < 15; h++) {
+	
+			mod = (!test && ( (bits >> h) & 1) === 1);
+			
+			if (h < 8) {
+				this.modules[8][this.moduleCount - h - 1] = mod;
+			} else if (h < 9) {
+				this.modules[8][15 - h - 1 + 1] = mod;
+			} else {
+				this.modules[8][15 - h - 1] = mod;
+			}
+		}
+	
+		// fixed module
+		this.modules[this.moduleCount - 8][8] = (!test);
+	
+	},
+	
+	mapData : function(data, maskPattern) {
+		
+		var inc = -1;
+		var row = this.moduleCount - 1;
+		var bitIndex = 7;
+		var byteIndex = 0;
+		
+		for (var col = this.moduleCount - 1; col > 0; col -= 2) {
+	
+			if (col === 6) col--;
+	
+			while (true) {
+	
+				for (var c = 0; c < 2; c++) {
+					
+					if (this.modules[row][col - c] === null) {
+						
+						var dark = false;
+	
+						if (byteIndex < data.length) {
+							dark = ( ( (data[byteIndex] >>> bitIndex) & 1) === 1);
+						}
+	
+						var mask = QRUtil.getMask(maskPattern, row, col - c);
+	
+						if (mask) {
+							dark = !dark;
+						}
+						
+						this.modules[row][col - c] = dark;
+						bitIndex--;
+	
+						if (bitIndex === -1) {
+							byteIndex++;
+							bitIndex = 7;
+						}
+					}
+				}
+								
+				row += inc;
+	
+				if (row < 0 || this.moduleCount <= row) {
+					row -= inc;
+					inc = -inc;
+					break;
+				}
+			}
+		}
+		
+	}
+
+};
+
+QRCode.PAD0 = 0xEC;
+QRCode.PAD1 = 0x11;
+
+QRCode.createData = function(typeNumber, errorCorrectLevel, dataList) {
+	
+	var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectLevel);
+	
+	var buffer = new QRBitBuffer();
+	
+	for (var i = 0; i < dataList.length; i++) {
+		var data = dataList[i];
+		buffer.put(data.mode, 4);
+		buffer.put(data.getLength(), QRUtil.getLengthInBits(data.mode, typeNumber) );
+		data.write(buffer);
+	}
+
+	// calc num max data.
+	var totalDataCount = 0;
+	for (var x = 0; x < rsBlocks.length; x++) {
+		totalDataCount += rsBlocks[x].dataCount;
+	}
+
+	if (buffer.getLengthInBits() > totalDataCount * 8) {
+		throw new Error("code length overflow. (" + 
+            buffer.getLengthInBits() + 
+            ">" +  
+            totalDataCount * 8 + 
+            ")");
+	}
+
+	// end code
+	if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
+		buffer.put(0, 4);
+	}
+
+	// padding
+	while (buffer.getLengthInBits() % 8 !== 0) {
+		buffer.putBit(false);
+	}
+
+	// padding
+	while (true) {
+		
+		if (buffer.getLengthInBits() >= totalDataCount * 8) {
+			break;
+		}
+		buffer.put(QRCode.PAD0, 8);
+		
+		if (buffer.getLengthInBits() >= totalDataCount * 8) {
+			break;
+		}
+		buffer.put(QRCode.PAD1, 8);
+	}
+
+	return QRCode.createBytes(buffer, rsBlocks);
+};
+
+QRCode.createBytes = function(buffer, rsBlocks) {
+
+	var offset = 0;
+	
+	var maxDcCount = 0;
+	var maxEcCount = 0;
+	
+	var dcdata = new Array(rsBlocks.length);
+	var ecdata = new Array(rsBlocks.length);
+	
+	for (var r = 0; r < rsBlocks.length; r++) {
+
+		var dcCount = rsBlocks[r].dataCount;
+		var ecCount = rsBlocks[r].totalCount - dcCount;
+
+		maxDcCount = Math.max(maxDcCount, dcCount);
+		maxEcCount = Math.max(maxEcCount, ecCount);
+		
+		dcdata[r] = new Array(dcCount);
+		
+		for (var i = 0; i < dcdata[r].length; i++) {
+			dcdata[r][i] = 0xff & buffer.buffer[i + offset];
+		}
+		offset += dcCount;
+		
+		var rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+		var rawPoly = new QRPolynomial(dcdata[r], rsPoly.getLength() - 1);
+
+		var modPoly = rawPoly.mod(rsPoly);
+		ecdata[r] = new Array(rsPoly.getLength() - 1);
+		for (var x = 0; x < ecdata[r].length; x++) {
+            var modIndex = x + modPoly.getLength() - ecdata[r].length;
+			ecdata[r][x] = (modIndex >= 0)? modPoly.get(modIndex) : 0;
+		}
+
+	}
+	
+	var totalCodeCount = 0;
+	for (var y = 0; y < rsBlocks.length; y++) {
+		totalCodeCount += rsBlocks[y].totalCount;
+	}
+
+	var data = new Array(totalCodeCount);
+	var index = 0;
+
+	for (var z = 0; z < maxDcCount; z++) {
+		for (var s = 0; s < rsBlocks.length; s++) {
+			if (z < dcdata[s].length) {
+				data[index++] = dcdata[s][z];
+			}
+		}
+	}
+
+	for (var xx = 0; xx < maxEcCount; xx++) {
+		for (var t = 0; t < rsBlocks.length; t++) {
+			if (xx < ecdata[t].length) {
+				data[index++] = ecdata[t][xx];
+			}
+		}
+	}
+
+	return data;
+
+};
+
+module.exports = QRCode;
+
+};
+  function req(name){
+    name = normalize(name);
+    if(cache[name]) return cache[name].exports;
+    if(!modules[name]) throw new Error('QR module not found: '+name);
+    const module = {exports:{}};
+    cache[name] = module;
+    modules[name](module,module.exports,req);
+    return module.exports;
+  }
+  return {QRCode:req('index'), QRErrorCorrectLevel:req('QRErrorCorrectLevel')};
+})();
+</script>
+<script>
+(()=>{'use strict';
+const KEY='mkios_v19_data';
+const defaults={tickets:[{id:'t1',icon:'🎡',name:'Regular Ride',price:25000,description:'Tiket reguler untuk satu pengunjung.',status:'ACTIVE'},{id:'t2',icon:'👨‍👩‍👧',name:'Family Ride',price:90000,description:'Paket perjalanan keluarga.',status:'ACTIVE'},{id:'t3',icon:'🌙',name:'Night Ride',price:35000,description:'Nikmati pengalaman di malam hari.',status:'ACTIVE'},{id:'t4',icon:'👥',name:'Group Ride',price:20000,description:'Harga spesial untuk rombongan.',status:'ACTIVE'}],promos:[{id:'p1',code:'HEMAT10',discount:10000,minSpend:50000,quota:100,used:0,status:'ACTIVE'}],transactions:[],payment:{qris:true,wallet:true,cash:true},content:{brand:'M-KIOS',headline:'Bianglala Mandiri',subheadline:'Pesan tiket lebih mudah, cepat, dan praktis melalui kios mandiri.',cta:'Pesan Tiket Sekarang',announcement:'Selamat datang di Bianglala Mandiri',heroImage:'',heroPosition:'center'},settings:{venue:'Bianglala Mandiri',currency:'IDR'},ticketCheckins:[]};
+const clone=x=>JSON.parse(JSON.stringify(x));
+function load(){try{const raw=JSON.parse(localStorage.getItem(KEY));if(!raw||!Array.isArray(raw.tickets)||!Array.isArray(raw.promos)||!Array.isArray(raw.transactions))return clone(defaults);return {...clone(defaults),...raw,payment:{...defaults.payment,...raw.payment},content:{...defaults.content,...raw.content},settings:{...defaults.settings,...raw.settings},ticketCheckins:Array.isArray(raw.ticketCheckins)?raw.ticketCheckins:[]}}catch{return clone(defaults)}}
+let db=load();if(!Array.isArray(db.users))db.users=[];let state={page:'home',adminTab:'dashboard',logged:false,reportFrom:'',reportTo:'',reportStatus:'ALL',reportMethod:'ALL',editingRole:null,currentUser:null,editing:null,search:'',statusFilter:'ALL',selected:null,qty:1,promo:'',applied:null,method:'',orderId:null,printSearch:'',error:'',scanOpen:false,scanMode:'',scanError:''};
+const MENU_IDS=['dashboard','reports','tickets','promos','transactions','scan','payment','content','users','roles','settings'];
+const CRUD=['create','read','update','delete'];
+const builtinRoles={superadmin:{label:'Super Admin',tabs:MENU_IDS,edit:MENU_IDS},manager:{label:'Manager',tabs:['dashboard','reports','tickets','promos','transactions','content'],edit:['tickets','promos','content']},operator:{label:'Operator',tabs:['dashboard','transactions','scan'],edit:['transactions','scan']},viewer:{label:'Viewer',tabs:['dashboard','reports','tickets','promos','transactions','content'],edit:[]}};
+function initRoles(){if(!db.roles||typeof db.roles!=='object')db.roles={};for(const [key,old] of Object.entries(builtinRoles)){if(!db.roles[key]){const permissions={};for(const m of MENU_IDS){permissions[m]={create:old.edit.includes(m),read:old.tabs.includes(m),update:old.edit.includes(m),delete:old.edit.includes(m)}}db.roles[key]={id:key,label:old.label,permissions,system:true}}}db.roles.superadmin.permissions=Object.fromEntries(MENU_IDS.map(m=>[m,{create:true,read:true,update:true,delete:true}]));db.roles.superadmin.system=true;}
+initRoles();
+function role(){return db.roles[state.currentUser?.role]||db.roles.viewer}
+function can(tab,action='read'){if(!state.logged)return false;if(action===true)action='update';if(action===false)action='read';return Boolean(role()?.permissions?.[tab]?.[action])}
+function requireAccess(tab,action='read'){if(!can(tab,action)){toast('Akses tidak diizinkan untuk role ini.',true);return false}return true}
+function anyWrite(tab){return ['create','update','delete'].some(a=>can(tab,a))}
+function roleName(id){return db.roles[id]?.label||id}
+async function digest(password,salt){const raw=new TextEncoder().encode(salt+':'+password);const hash=await crypto.subtle.digest('SHA-256',raw);return [...new Uint8Array(hash)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function newSalt(){const b=new Uint8Array(16);crypto.getRandomValues(b);return [...b].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function randomSecret(){const b=new Uint8Array(18);crypto.getRandomValues(b);return [...b].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,24).toUpperCase()}
+function ensureUserQrSecrets(){let changed=false;for(const u of db.users){if(!u.loginSecret){u.loginSecret=randomSecret();changed=true}}if(changed)save()}
+async function signIn(username,password){let u=db.users.find(x=>x.username.toLowerCase()===username.toLowerCase()&&x.active);if(!u&&db.users.length===0&&username==='admin'&&password==='2580'){const salt=newSalt();u={id:'root',name:'Super Admin',username:'admin',role:'superadmin',active:true,salt,hash:await digest('2580',salt),loginSecret:randomSecret()};db.users.push(u);save()}ensureUserQrSecrets();if(!u||!u.hash||await digest(password,u.salt)!==u.hash)return false;state.currentUser={id:u.id,name:u.name,role:u.role};state.logged=true;return true}
+async function signInByLoginQR(raw){ensureUserQrSecrets();let parts=String(raw||'').trim().split('|');if(parts.length<3||parts[0]!=='MKIOS-LOGIN')return false;let u=db.users.find(x=>x.id===parts[1]&&x.active&&x.loginSecret===parts[2]);if(!u)return false;state.currentUser={id:u.id,name:u.name,role:u.role};state.logged=true;return true}
+function loginQrPayload(user){return `MKIOS-LOGIN|${user.id}|${user.loginSecret||''}`}
+const $=id=>document.getElementById(id);const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rupiah=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
+const date=s=>new Date(s).toLocaleString('id-ID',{dateStyle:'medium',timeStyle:'short'});const ident=prefix=>prefix+'-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+function ticketQrSerial(order,index){return 'TKT-'+String(order.id).toUpperCase()+'-'+String(index+1).padStart(3,'0')}
+function ticketQrPayload(order,index){return `MKIOS-TICKET|${order.id}|${ticketQrSerial(order,index)}|${index+1}|${order.qty}|${order.ticketId||'TICKET'}`}
+function makeQrSvg(text,size=220){try{const core=window.MKQRCodeCore;if(!core||!core.QRCode||!core.QRErrorCorrectLevel)throw Error('QR library missing');const qr=new core.QRCode(0,core.QRErrorCorrectLevel.H);qr.addData(String(text));qr.make();const count=qr.getModuleCount(),quiet=4,total=count+quiet*2;let rects='';for(let r=0;r<count;r++){for(let c=0;c<count;c++){if(qr.isDark(r,c))rects+=`<rect x="${c+quiet}" y="${r+quiet}" width="1" height="1"/>`}}return `<svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${total} ${total}" width="${size}" height="${size}" shape-rendering="crispEdges" role="img" aria-label="QR Code"><rect width="100%" height="100%" fill="#fff"/> <g fill="#111">${rects}</g></svg>`}catch(err){return `<div class="qr-fallback">QR tidak dapat dibuat</div>`}}
+function makeQrDataUrl(text,size=220){const svg=makeQrSvg(text,size);return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}
+function downloadBlob(blob,filename){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1200)}
+function dataUrlToImage(url){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=url})}
+async function downloadTicketCard(orderId,index){const order=db.transactions.find(x=>x.id===orderId);if(!order)return toast('Pesanan tidak ditemukan.',true);const serial=ticketQrSerial(order,index);const payload=ticketQrPayload(order,index);const qrUrl=makeQrDataUrl(payload,700);if(!qrUrl)return toast('Gagal membuat QR tiket.',true);const img=await dataUrlToImage(qrUrl).catch(()=>null);if(!img)return toast('Gagal memuat QR tiket.',true);const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1520;const ctx=canvas.getContext('2d');ctx.fillStyle='#f4f7fb';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#ffffff';ctx.strokeStyle='#d9e3f2';ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(60,60,960,1400,26);ctx.fill();ctx.stroke();ctx.fillStyle='#193766';ctx.fillRect(60,60,960,150);ctx.fillStyle='#ffffff';ctx.font='700 42px Inter,Arial,sans-serif';ctx.fillText(db.content.brand||'M-KIOS',100,130);ctx.font='500 24px Inter,Arial,sans-serif';ctx.fillText('Tiket Masuk • QR Pass',100,170);ctx.fillStyle='#17355f';ctx.font='700 44px Inter,Arial,sans-serif';ctx.fillText(order.ticketName,100,250);ctx.font='500 24px Inter,Arial,sans-serif';ctx.fillStyle='#4c6280';ctx.fillText(`Pack ${index+1} dari ${order.qty}`,100,290);ctx.drawImage(img,240,340,600,600);ctx.fillStyle='#17355f';ctx.font='700 28px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(serial,540,980);ctx.textAlign='left';ctx.font='600 24px Inter,Arial,sans-serif';const rows=[['Kode Pesanan',order.id],['Tanggal',date(order.createdAt)],['Status','PAID'],['Jenis Tiket',order.ticketName],['Pack Ke',`${index+1} / ${order.qty}`]];let y=1060;for(const [label,value] of rows){ctx.fillStyle='#6b7b93';ctx.font='500 22px Inter,Arial,sans-serif';ctx.fillText(label,110,y);ctx.fillStyle='#17355f';ctx.font='700 24px Inter,Arial,sans-serif';ctx.fillText(String(value),420,y);y+=60}ctx.fillStyle='#5d6f88';ctx.font='500 20px Inter,Arial,sans-serif';ctx.fillText('Tunjukkan QR ini kepada petugas saat validasi tiket.',110,1380);canvas.toBlob(blob=>blob?downloadBlob(blob,serial+'.png'):toast('Gagal mengunduh tiket.',true),'image/png')}
+async function downloadLoginQrCard(userId){const user=db.users.find(x=>x.id===userId);if(!user)return toast('Pengguna tidak ditemukan.',true);const qrUrl=makeQrDataUrl(loginQrPayload(user),700);if(!qrUrl)return toast('Gagal membuat QR login.',true);const img=await dataUrlToImage(qrUrl).catch(()=>null);if(!img)return toast('Gagal memuat QR login.',true);const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1380;const ctx=canvas.getContext('2d');ctx.fillStyle='#f4f7fb';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#fff';ctx.strokeStyle='#d9e3f2';ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(80,70,920,1240,26);ctx.fill();ctx.stroke();ctx.fillStyle='#193766';ctx.fillRect(80,70,920,150);ctx.fillStyle='#fff';ctx.font='700 42px Inter,Arial,sans-serif';ctx.fillText(db.content.brand||'M-KIOS',120,140);ctx.font='500 24px Inter,Arial,sans-serif';ctx.fillText('Admin Scan Login',120,180);ctx.drawImage(img,250,290,580,580);ctx.fillStyle='#17355f';ctx.textAlign='center';ctx.font='700 34px Inter,Arial,sans-serif';ctx.fillText(user.name,540,930);ctx.font='500 24px Inter,Arial,sans-serif';ctx.fillText(`@${user.username} • ${roleName(user.role)}`,540,972);ctx.fillStyle='#5d6f88';ctx.font='500 22px Inter,Arial,sans-serif';ctx.fillText('Scan QR ini dari halaman login admin pada perangkat operator.',540,1060);ctx.fillText('Jaga kerahasiaan QR karena QR ini dapat dipakai untuk login.',540,1102);canvas.toBlob(blob=>blob?downloadBlob(blob,'mkios-login-'+user.username+'.png'):toast('Gagal mengunduh QR login.',true),'image/png')}
+let scanStream=null,scanDetector=null,scanLoopBusy=false;
+let scanGeneration=0;
+function stopScanner(){scanGeneration++;scannerPending=false;if(scanStream){for(const t of scanStream.getTracks())t.stop();scanStream=null}scanDetector=null;scanLoopBusy=false}
+function expandManualTicketCode(value){const raw=String(value||'').trim();if(raw.startsWith('MKIOS-TICKET|'))return raw;const order=db.transactions.find(o=>Array.from({length:Math.min(99,Number(o.qty)||0)},(_,i)=>ticketQrSerial(o,i)).includes(raw.toUpperCase()));if(!order)return raw;const n=Number(raw.match(/-(\d{3})$/)?.[1]);return Number.isInteger(n)&&n>=1&&n<=order.qty?ticketQrPayload(order,n-1):raw}
+function validateTicketQr(raw){const parts=String(raw||'').trim().split('|');if(parts.length<6||parts[0]!=='MKIOS-TICKET')return {ok:false,title:'QR tidak dikenali',detail:'QR ini bukan QR tiket M-KIOS.'};const order=db.transactions.find(o=>o.id===parts[1]);if(!order)return {ok:false,title:'Tiket tidak ditemukan',detail:'Kode pesanan tidak ada pada data transaksi.'};const serial=parts[2],packNo=Number(parts[3]);if(order.status!=='PAID')return {ok:false,title:'Pembayaran belum lunas',detail:`Pesanan ${order.id} berstatus ${order.status}.`};if(!Number.isInteger(packNo)||packNo<1||packNo>Number(order.qty)||serial!==ticketQrSerial(order,packNo-1))return {ok:false,title:'QR tiket tidak valid',detail:'Nomor pack atau serial QR tidak cocok dengan pesanan.'};const used=db.ticketCheckins.find(x=>x.serial===serial);if(used)return {ok:false,title:'Tiket sudah digunakan',detail:`Check-in tercatat ${date(used.checkedAt)} oleh ${used.operatorName||'operator'}.`,order,serial,packNo,used};return {ok:true,title:'Tiket valid',detail:`${order.ticketName} • Pack ${packNo} dari ${order.qty}`,order,serial,packNo}}
+function recordTicketCheckin(result){const now=new Date().toISOString();db.ticketCheckins.push({id:ident('CHK'),orderId:result.order.id,serial:result.serial,packNo:result.packNo,checkedAt:now,operatorId:state.currentUser?.id||'',operatorName:state.currentUser?.name||'Operator'});save();return db.ticketCheckins.at(-1)}
+async function processTicketQr(raw){if(!requireAccess('scan','update'))return;const result=validateTicketQr(expandManualTicketCode(raw));state.scanResult=result;state.scanError='';if(result.ok){recordTicketCheckin(result);state.scanResult={...result,checked:true};toast('Check-in berhasil. Tiket valid dan sudah digunakan.')}else{toast(result.title,true)}render()}
+let scannerPending=false,decoderTask=null,lastDecodeAttempt=0,scanNotFoundCount=0;
+function loadJsQrDecoder(){
+ if(window.jsQR)return Promise.resolve(window.jsQR);
+ if(decoderTask)return decoderTask;
+ decoderTask=new Promise((resolve,reject)=>{
+  const urls=['https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js','https://unpkg.com/jsqr@1.4.0/dist/jsQR.js'];
+  let i=0;
+  const loadNext=()=>{if(i>=urls.length)return reject(Error('Decoder cadangan tidak dapat dimuat. Pastikan perangkat terhubung internet atau gunakan input kode manual.'));
+   const script=document.createElement('script');script.src=urls[i++];script.async=true;
+   script.onload=()=>window.jsQR?resolve(window.jsQR):loadNext();script.onerror=loadNext;document.head.appendChild(script);
+  };loadNext();
+ }).catch(err=>{decoderTask=null;throw err});
+ return decoderTask;
+}
+function scanCanvasDecode(video){
+ const canvas=scanCanvasDecode.canvas||(scanCanvasDecode.canvas=document.createElement('canvas'));
+ const w=video.videoWidth,h=video.videoHeight;
+ if(!w||!h)return null;
+ const scale=Math.min(1,720/Math.max(w,h));canvas.width=Math.max(1,Math.round(w*scale));canvas.height=Math.max(1,Math.round(h*scale));
+ const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(video,0,0,canvas.width,canvas.height);
+ const pixels=ctx.getImageData(0,0,canvas.width,canvas.height);
+ return window.jsQR?.(pixels.data,pixels.width,pixels.height,{inversionAttempts:'attemptBoth'})?.data||null;
+}
+async function beginScanner(){
+ if(!state.scanOpen||state.page!=='admin'||state.adminTab!=='scan'||scanStream||scannerPending)return;
+ const video=$('scannerVideo');if(!video)return;
+ const generation=++scanGeneration;scannerPending=true;
+ const update=t=>{const el=$('scanStatus');if(el)el.textContent=t};
+ try{
+  if(!navigator.mediaDevices?.getUserMedia)throw Error('Akses kamera tidak tersedia. Gunakan HTTPS atau localhost, atau masukkan QR secara manual.');
+  update('Membuka kamera dan menyiapkan pembaca QR...');
+  const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false});
+  if(generation!==scanGeneration||!state.scanOpen||state.adminTab!=='scan'){stream.getTracks().forEach(t=>t.stop());return}
+  scanStream=stream;video.srcObject=stream;await video.play();
+  let nativeAvailable=false;
+  if('BarcodeDetector' in window){try{const formats=window.BarcodeDetector.getSupportedFormats?await BarcodeDetector.getSupportedFormats():['qr_code'];if(formats.includes('qr_code')){scanDetector=new BarcodeDetector({formats:['qr_code']});nativeAvailable=true}}catch(e){}}
+  if(!nativeAvailable){update('Kamera aktif. Memuat mesin pembaca QR cadangan...');try{await loadJsQrDecoder()}catch(err){update(err.message);return}}
+  else{loadJsQrDecoder().catch(()=>{});} // jalankan decoder kedua saat tersedia untuk akurasi lebih baik
+  if(generation!==scanGeneration)return;
+  update('Scanner aktif. Posisikan QR tiket di dalam area kamera, tahan stabil 1–2 detik.');
+  scanNotFoundCount=0;
+  const loop=async()=>{
+   if(generation!==scanGeneration||!state.scanOpen||state.adminTab!=='scan'||!scanStream)return;
+   if(scanLoopBusy){requestAnimationFrame(loop);return}scanLoopBusy=true;
+   let raw=null;
+   try{
+    if(video.readyState>=2&&video.videoWidth){
+     if(scanDetector){try{const codes=await scanDetector.detect(video);raw=codes?.find(c=>c.format==='qr_code'||!c.format)?.rawValue||null}catch(err){scanDetector=null}}
+     if(!raw&&window.jsQR&&performance.now()-lastDecodeAttempt>115){lastDecodeAttempt=performance.now();raw=scanCanvasDecode(video)}
+    }
+    if(raw){stopScanner();state.scanOpen=false;await processTicketQr(raw);return}
+    scanNotFoundCount++;
+    if(scanNotFoundCount===150)update('QR belum terbaca. Dekatkan QR, kurangi pantulan layar dan atur fokus kamera. Anda juga bisa unggah gambar QR.');
+   }catch(err){update('Pembacaan QR terganggu: '+(err.message||'coba kamera lain atau unggah foto QR.'))}
+   finally{scanLoopBusy=false}
+   if(generation===scanGeneration&&state.scanOpen)requestAnimationFrame(loop)
+  };
+  requestAnimationFrame(loop);
+ }catch(err){if(generation!==scanGeneration)return;state.scanError=err.name==='NotAllowedError'?'Izin kamera ditolak. Izinkan akses kamera pada browser.':err.name==='NotFoundError'?'Tidak ada kamera yang ditemukan.':err.message||'Kamera gagal dibuka.';update(state.scanError)}
+ finally{scannerPending=false}
+}
+async function scanImageFile(file){
+ if(!requireAccess('scan','update'))return;
+ const status=$('scanStatus');const msg=t=>{if(status)status.textContent=t};
+ if(!file||!file.type.startsWith('image/'))return toast('Pilih file gambar QR (JPG, PNG, atau WebP).',true);
+ if(file.size>10_000_000)return toast('Gambar terlalu besar (maksimum 10 MB).',true);
+ msg('Memeriksa QR dari gambar...');
+ try{
+  const img=await createImageBitmap(file);let raw=null;
+  if('BarcodeDetector' in window){try{const detector=new BarcodeDetector({formats:['qr_code']});const found=await detector.detect(img);raw=found?.[0]?.rawValue||null}catch(e){}}
+  if(!raw){const jsqr=await loadJsQrDecoder();const canvas=document.createElement('canvas');const scale=Math.min(1,1400/Math.max(img.width,img.height));canvas.width=Math.ceil(img.width*scale);canvas.height=Math.ceil(img.height*scale);const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,0,0,canvas.width,canvas.height);const pixels=ctx.getImageData(0,0,canvas.width,canvas.height);raw=jsqr(pixels.data,pixels.width,pixels.height,{inversionAttempts:'attemptBoth'})?.data||null}
+  img.close();
+  if(!raw){msg('QR tidak ditemukan pada gambar. Gunakan foto yang tajam dan pastikan seluruh QR terlihat.');return}
+  stopScanner();state.scanOpen=false;await processTicketQr(raw);
+ }catch(err){msg('Gagal membaca gambar: '+(err.message||'format tidak didukung.'))}
+}
+function scannerModal(){const r=state.scanResult;return `<div class="modal-backdrop"><section class="modal-card"><div class="panel-head"><h2>Scan Tiket Masuk</h2><button class="btn ghost sm" data-action="closeScanner">Tutup ✕</button></div><div class="scanner-shell"><div><div class="scanner-preview"><video id="scannerVideo" autoplay playsinline muted></video></div><div id="scanStatus" class="scan-status">${esc(state.scanError||'Menyiapkan kamera...')}</div></div><div class="qr-preview-card">${r?`<div class="eyebrow">${r.ok?'HASIL VALIDASI':'VALIDASI GAGAL'}</div><h3 style="margin:8px 0 10px">${esc(r.title)}</h3><p class="muted">${esc(r.detail)}</p>${r.order?`<div class="divider"></div><div class="summary-line"><span>Pesanan</span><b>${esc(r.order.id)}</b></div><div class="summary-line"><span>Tiket</span><b>${esc(r.order.ticketName)}</b></div><div class="summary-line"><span>Pack</span><b>${r.packNo} / ${r.order.qty}</b></div><div class="summary-line"><span>Serial</span><b style="font-size:11px">${esc(r.serial)}</b></div>${r.checked?`<div class="alert" style="margin-top:14px">Check-in berhasil. QR ini sekarang sudah ditandai digunakan.</div>`:''}`:''}<div class="stack" style="justify-content:center;margin-top:18px"><button class="btn" data-action="openTicketScanner">Scan Tiket Berikutnya</button><button class="btn ghost" data-action="closeScanner">Selesai</button></div>`:`<div class="eyebrow">TICKET CHECK-IN</div><h3 style="margin:8px 0 10px">Scan QR customer</h3><p class="muted">Gunakan kamera perangkat petugas untuk memvalidasi tiket di pintu masuk wahana. Satu QR hanya dapat dipakai sekali.</p><div class="divider"></div><p class="hint">Pastikan transaksi berstatus <b>PAID</b> sebelum customer masuk.</p>`}</div></div></section></div>`}
+function scanPanel(){const recent=[...db.ticketCheckins].reverse().slice(0,12),r=state.scanResult;return `<div class="section-head"><div><h2>Scan Tiket Masuk</h2><p>Gunakan kamera otomatis atau masukkan isi QR secara manual untuk validasi tiket per pack.</p></div><span class="badge green">Validasi Check-in</span></div><div class="scanner-stage"><section class="panel"><div class="panel-head"><h2>Kamera Scanner</h2><span class="badge" id="scannerBadge">${state.scanOpen?'Aktif / memulai':'Tidak aktif'}</span></div><div class="scanner-view"><video id="scannerVideo" autoplay playsinline muted></video></div><p class="scan-state" id="scanStatus">${esc(state.scanError||'Memeriksa izin dan membuka kamera...')}</p><div class="scanner-controls"><button class="btn" data-action="openTicketScanner">↻ ${state.scanOpen?'Mulai Ulang Kamera':'Aktifkan Kamera'}</button><button class="btn ghost" data-action="stopTicketScanner">Hentikan Kamera</button><label class="btn soft" style="cursor:pointer">Unggah Foto QR<input id="scanImageUpload" type="file" accept="image/png,image/jpeg,image/webp" hidden></label></div><p class="scanner-state-help" style="margin-top:12px">Scanner memakai pembaca QR browser atau decoder cadangan melalui internet. Jika kamera sulit fokus, coba Unggah Foto QR atau input manual. Kamera biasanya memerlukan HTTPS atau localhost.</p></section><section class="panel"><h2>Input QR Manual</h2><p class="muted">Gunakan scanner USB yang mengetik isi QR, tempel hasil pembacaan QR, atau ketik serial tiket. Jangan masukkan nomor pesanan saja karena satu pesanan dapat berisi beberapa QR.</p><form id="manualScanForm" class="scanner-manual"><label class="field">Kode QR atau Serial Tiket<textarea name="qrCode" id="manualQrCode" required placeholder="MKIOS-TICKET|ORD-MK-...|TKT-...|1|3|... atau TKT-ORD-MK-...-001" spellcheck="false" autocomplete="off"></textarea></label><button type="submit" class="btn wide">Validasi & Check-in Tiket</button></form>${r?`<div class="scan-result ${r.ok?'ok':'bad'}" role="status"><strong>${esc(r.checked?'Check-in berhasil':r.title)}</strong><p style="margin:6px 0 0;font-size:13px">${esc(r.detail)}</p>${r.order?`<p style="margin:8px 0 0;font-size:12px">Order: ${esc(r.order.id)} · Pack: ${r.packNo||'-'} / ${r.order.qty} · Serial: ${esc(r.serial||'-')}</p>`:''}</div>`:''}<p class="scanner-state-help">Hanya transaksi PAID yang dapat check-in. QR yang telah digunakan akan ditolak.</p></section></div><div class="metric-grid"><div class="panel metric"><small>Check-in Hari Ini</small><div class="num">${db.ticketCheckins.filter(x=>new Date(x.checkedAt).toDateString()===new Date().toDateString()).length}</div><small>QR berhasil divalidasi</small></div><div class="panel metric"><small>Total Check-in</small><div class="num">${db.ticketCheckins.length}</div><small>Seluruh riwayat</small></div><div class="panel metric"><small>Belum Terpakai</small><div class="num">${Math.max(0,ordersPaid().reduce((a,o)=>a+o.qty,0)-db.ticketCheckins.length)}</div><small>Berdasarkan tiket lunas</small></div></div><section class="panel"><div class="panel-head"><h2>Riwayat Check-in</h2><span class="muted">Terbaru di atas</span></div>${recent.length?`<div class="table-scroll"><table class="table"><thead><tr><th>Waktu</th><th>Order</th><th>Serial QR</th><th>Pack</th><th>Petugas</th></tr></thead><tbody>${recent.map(x=>`<tr><td>${date(x.checkedAt)}</td><td>${esc(x.orderId)}</td><td>${esc(x.serial)}</td><td>${x.packNo}</td><td>${esc(x.operatorName)}</td></tr>`).join('')}</tbody></table></div>`:empty('Belum ada check-in','Hasil validasi tiket akan tercatat di sini.')}</section>`}
+function overlayMarkup(){return ''}
+
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true}catch{toast('Penyimpanan browser penuh atau diblokir.',true);return false}}
+function toast(msg,error=false){let el=$('toast');el.innerHTML=`<div class="toast ${error?'error':''}">${esc(msg)}</div>`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.innerHTML='',3200)}
+const activeTickets=()=>db.tickets.filter(t=>t.status==='ACTIVE');const ordersPaid=()=>db.transactions.filter(t=>t.status==='PAID');const totalPaid=()=>ordersPaid().reduce((a,b)=>a+b.total,0);
+function navigate(page){state.page=page;state.error='';state.scanOpen=false;state.scanError='';state.scanResult=null;stopScanner();render();window.scrollTo(0,0)}function admin(tab){if(!can(tab))return toast('Menu tidak tersedia untuk role ini.',true);state.page='admin';state.adminTab=tab;state.editing=null;state.search='';state.statusFilter='ALL';state.scanOpen=tab==='scan';state.scanError='';state.scanResult=null;stopScanner();render();window.scrollTo(0,0)}
+function render(){if(state.page==='admin'&&!can(state.adminTab))state.adminTab=MENU_IDS.find(m=>can(m))||'dashboard';let app=$('app');app.innerHTML=(state.page==='login'?login():state.page==='admin'?(state.logged?adminPage():login()):customerPage())+overlayMarkup();if(state.scanOpen&&state.page==='admin'&&state.adminTab==='scan')setTimeout(beginScanner,50);else stopScanner();}
+function login(){return `<main class="admin-login"><section class="panel login-card"><div class="brand"><span class="brand-logo">◈</span> M-KIOS</div><div class="eyebrow">Operator Access</div><h1>Masuk ke Admin</h1><p class="muted">Kelola produk, promosi, transaksi, dan konten halaman customer dalam satu tempat.</p><form id="loginForm"><label class="field">Username<input id="loginUser" required autocomplete="username" value="" placeholder="Nama pengguna"></label><label class="field">Password<input id="loginPass" type="password" required autocomplete="current-password" placeholder="Masukkan password"></label><div id="loginError" class="error-text"></div><button class="btn wide" type="submit">Masuk ke Dashboard</button></form><div class="alert">Versi ini adalah prototipe lokal. Akun pertama demo: <b>admin / 2580</b>. Ganti password melalui Manajemen Pengguna. </div><button class="btn ghost wide" style="margin-top:12px" data-nav="home">← Kembali ke Customer</button></section></main>`}
+const menus=[['dashboard','▦','Ringkasan'],['reports','▤','Laporan'],['tickets','▤','Kelola Tiket'],['promos','◇','Promo & Voucher'],['transactions','▥','Transaksi'],['scan','⌁','Scan Tiket'],['payment','▣','Metode Pembayaran'],['content','▧','Halaman Customer'],['users','♙','Pengguna'],['roles','⚿','Role & Akses'],['settings','⚙','Pengaturan']];
+function adminPage(){document.body.classList.toggle('read-only',!anyWrite(state.adminTab));const tab=menus.find(m=>m[0]===state.adminTab)||menus[0];return `<div class="admin-layout"><aside class="sidebar"><div class="brand"><span class="brand-logo">◈</span> M-KIOS</div><div class="side-label">WORKSPACE</div><nav aria-label="Menu administrasi">${menus.filter(m=>can(m[0])).map(m=>`<button class="nav-btn ${m[0]===state.adminTab?'active':''}" data-tab="${m[0]}"><span aria-hidden="true">${m[1]}</span>${m[2]}</button>`).join('')}</nav><div class="sidebar-foot"><button class="btn" data-nav="home">↗ Lihat Halaman Customer</button><button class="nav-btn" data-action="logout" style="margin-top:10px">⇥ Keluar Admin</button></div></aside><main class="admin-main"><header class="admin-top"><div><div class="eyebrow">ADMINISTRATION / ${esc(tab[2].toUpperCase())}</div><h1>${esc(tab[2])}</h1><p>Kelola operasional kios secara langsung.</p></div><div class="top-right"><span class="user-chip">● ${esc(state.currentUser?.name||'Pengguna')} · ${esc(role().label)}</span><button class="btn ghost sm" data-nav="home">Customer View ↗</button><button class="btn ghost sm" data-action="logout">Keluar</button></div></header>${({dashboard:dashboardPanel,reports:reportsPanel,roles:rolesPanel,tickets:ticketPanel,promos:promoPanel,transactions:transactionPanel,scan:scanPanel,payment:paymentPanel,content:contentPanel,users:usersPanel,settings:settingsPanel}[state.adminTab]||dashboardPanel)()}</main></div>`}
+function dashboardPanel(){const paid=ordersPaid(),recent=[...db.transactions].reverse().slice(0,5);return `<div class="notice">Data di bawah berasal dari transaksi tersimpan pada browser ini. Pembayaran pada versi demo tidak terhubung ke payment gateway.</div><div class="metric-grid"><div class="panel metric"><small>Total Pendapatan</small><div class="num">${rupiah(totalPaid())}</div><small>Transaksi berstatus PAID</small></div><div class="panel metric"><small>Tiket Terjual</small><div class="num">${paid.reduce((a,b)=>a+b.qty,0)}</div><small>Dari pesanan terbayar</small></div><div class="panel metric"><small>Total Pesanan</small><div class="num">${db.transactions.length}</div><small>Seluruh status transaksi</small></div><div class="panel metric"><small>Produk Aktif</small><div class="num">${activeTickets().length}</div><small>Ditampilkan ke customer</small></div></div>${can('reports')?`<div class="stack" style="margin-bottom:18px"><button class="btn soft" data-tab="reports">Lihat Laporan Lengkap & Export CSV →</button></div>`:''}<div class="two-cols"><section class="panel"><div class="panel-head"><h2>Transaksi Terbaru</h2><button class="btn soft sm" data-tab="transactions">Lihat Semua →</button></div>${recent.length?`<div class="table-scroll"><table class="table"><thead><tr><th>Order</th><th>Produk</th><th>Total</th><th>Status</th></tr></thead><tbody>${recent.map(o=>`<tr><td>${esc(o.id)}</td><td>${esc(o.ticketName)}</td><td>${rupiah(o.total)}</td><td>${statusBadge(o.status)}</td></tr>`).join('')}</tbody></table></div>`:empty('Belum ada transaksi','Pesanan customer akan tampil di sini.')}</section><section class="panel"><div class="panel-head"><h2>Akses Cepat</h2></div><div style="display:grid;gap:10px">${can('tickets',true)?`<button class="btn ghost" data-action="addTicket">＋ Tambah Produk Tiket</button>`:''}${can('promos',true)?`<button class="btn ghost" data-action="addPromo">＋ Buat Promo</button>`:''}${can('content',true)?`<button class="btn ghost" data-tab="content">▧ Edit Tampilan Customer</button>`:''}${can('settings',true)?`<button class="btn ghost" data-action="export">↓ Ekspor Data JSON</button>`:''}</div><div class="divider"></div><small>Perubahan pada tiket, promo, dan konten langsung terlihat saat membuka halaman customer pada browser ini.</small></section></div>`}
+function empty(title,sub){return `<div class="empty"><strong>${esc(title)}</strong><span>${esc(sub)}</span></div>`}
+function statusBadge(s){return `<span class="badge ${s==='PAID'||s==='ACTIVE'?'green':s==='CANCELLED'||s==='INACTIVE'?'red':'amber'}">${esc(s)}</span>`}
+function ticketForm(){let t=db.tickets.find(x=>x.id===state.editing)||{icon:'🎟',name:'',price:'',description:'',status:'ACTIVE'};return `<section class="panel editing"><div class="panel-head"><div><h2>${state.editing?'Edit Tiket':'Tambah Tiket Baru'}</h2><small>Isi formulir ini tanpa membuka popup browser.</small></div><button class="btn ghost sm" data-action="closeEditor">Tutup ✕</button></div><form id="ticketForm"><div class="form-grid"><label class="field">Nama tiket<input name="name" required maxlength="80" value="${esc(t.name)}" placeholder="Contoh: Sunset Ride"></label><label class="field">Harga (Rp)<input name="price" type="number" required min="0" step="1000" value="${esc(t.price)}"></label><label class="field">Ikon / emoji<input name="icon" maxlength="8" value="${esc(t.icon)}" placeholder="🎡"></label><label class="field">Status<select name="status"><option value="ACTIVE" ${t.status==='ACTIVE'?'selected':''}>Aktif</option><option value="INACTIVE" ${t.status==='INACTIVE'?'selected':''}>Nonaktif</option></select></label><label class="field" style="grid-column:1/-1">Deskripsi<textarea name="description" maxlength="200">${esc(t.description)}</textarea></label></div><div class="form-actions"><button type="button" class="btn ghost" data-action="closeEditor">Batal</button><button class="btn" type="submit">Simpan Tiket</button></div></form></section>`}
+function ticketPanel(){return `<div class="section-head"><div><h2>Daftar Tiket</h2><p>Kelola harga, deskripsi, dan ketersediaan tiket yang dilihat customer.</p></div><button class="btn" data-action="addTicket" ${!can('tickets','create')?'disabled':''}>＋ Tambah Tiket</button></div>${state.editing!==null&&state.editingType==='ticket'?ticketForm():''}<section class="panel"><div class="toolbar"><input class="search" id="tableSearch" placeholder="Cari nama tiket..." value="${esc(state.search)}"><span class="badge">${db.tickets.length} Produk</span></div><div class="table-scroll"><table class="table"><thead><tr><th>Tiket</th><th>Harga</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${db.tickets.filter(t=>t.name.toLowerCase().includes(state.search.toLowerCase())).map(t=>`<tr><td><b>${esc(t.icon)} ${esc(t.name)}</b><div class="hint">${esc(t.description)}</div></td><td>${rupiah(t.price)}</td><td>${statusBadge(t.status)}</td><td><div class="stack"><button class="btn soft sm" data-edit-ticket="${esc(t.id)}">Edit</button><button class="btn ghost sm" data-toggle-ticket="${esc(t.id)}">${t.status==='ACTIVE'?'Nonaktifkan':'Aktifkan'}</button><button class="btn danger sm" data-delete-ticket="${esc(t.id)}">Hapus</button></div></td></tr>`).join('')||'<tr><td colspan="4">Tidak ada tiket yang sesuai.</td></tr>'}</tbody></table></div></section>`}
+function promoForm(){let p=db.promos.find(x=>x.id===state.editing)||{code:'',discount:'',minSpend:0,quota:100,status:'ACTIVE'};return `<section class="panel editing"><div class="panel-head"><h2>${state.editing?'Edit Promo':'Tambah Promo Baru'}</h2><button class="btn ghost sm" data-action="closeEditor">Tutup ✕</button></div><form id="promoForm"><div class="form-grid"><label class="field">Kode Promo<input name="code" required maxlength="24" value="${esc(p.code)}" placeholder="CONTOH20"></label><label class="field">Potongan Nominal (Rp)<input name="discount" type="number" min="1" step="1000" required value="${esc(p.discount)}"></label><label class="field">Minimal Belanja (Rp)<input name="minSpend" type="number" min="0" step="1000" required value="${esc(p.minSpend)}"></label><label class="field">Kuota Penggunaan<input name="quota" type="number" min="1" step="1" required value="${esc(p.quota)}"></label><label class="field">Status<select name="status"><option value="ACTIVE" ${p.status==='ACTIVE'?'selected':''}>Aktif</option><option value="INACTIVE" ${p.status==='INACTIVE'?'selected':''}>Nonaktif</option></select></label></div><div class="form-actions"><button type="button" class="btn ghost" data-action="closeEditor">Batal</button><button class="btn" type="submit">Simpan Promo</button></div></form></section>`}
+function promoPanel(){return `<div class="section-head"><div><h2>Promo & Voucher</h2><p>Atur potongan harga, minimum belanja, kuota, dan status voucher.</p></div><button class="btn" data-action="addPromo" ${!can('promos','create')?'disabled':''}>＋ Tambah Promo</button></div>${state.editing!==null&&state.editingType==='promo'?promoForm():''}<section class="panel"><div class="table-scroll"><table class="table"><thead><tr><th>Kode</th><th>Diskon</th><th>Min. Belanja</th><th>Penggunaan</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${db.promos.map(p=>`<tr><td><b>${esc(p.code)}</b></td><td>${rupiah(p.discount)}</td><td>${rupiah(p.minSpend)}</td><td>${p.used||0} / ${p.quota}</td><td>${statusBadge(p.status)}</td><td><div class="stack"><button class="btn soft sm" data-edit-promo="${esc(p.id)}">Edit</button><button class="btn ghost sm" data-toggle-promo="${esc(p.id)}">${p.status==='ACTIVE'?'Nonaktifkan':'Aktifkan'}</button><button class="btn danger sm" data-delete-promo="${esc(p.id)}">Hapus</button></div></td></tr>`).join('')||'<tr><td colspan="6">Belum ada promo.</td></tr>'}</tbody></table></div></section>`}
+function transactionPanel(){let tx=[...db.transactions].reverse().filter(o=>(state.statusFilter==='ALL'||o.status===state.statusFilter)&&`${o.id} ${o.ticketName} ${o.payment} ${o.paymentRef}`.toLowerCase().includes(state.search.toLowerCase()));return `<div class="section-head"><div><h2>Riwayat Transaksi & Pembayaran</h2><p>Konfirmasi pembayaran customer dari satu tempat.</p></div><button class="btn ghost" data-action="export">↓ Ekspor JSON</button></div><div class="notice"><b>Logika demo:</b> QRIS dan E-Wallet membuat instruksi pembayaran dummy dan tetap PENDING. Kasir menerima nomor pesanan. Setelah pembayaran benar-benar diterima di kasir, operator menekan <b>Tandai Paid</b>. Hanya transaksi PAID yang dapat lolos scan tiket.</div><section class="panel"><div class="toolbar"><input class="search" id="tableSearch" value="${esc(state.search)}" placeholder="Cari kode order / tiket / ref..."><select class="search" id="filterStatus" style="width:175px"><option value="ALL">Semua Status</option><option value="PENDING" ${state.statusFilter==='PENDING'?'selected':''}>Pending</option><option value="PAID" ${state.statusFilter==='PAID'?'selected':''}>Paid</option><option value="CANCELLED" ${state.statusFilter==='CANCELLED'?'selected':''}>Cancelled</option></select><span class="badge">${tx.length} Transaksi</span></div><div class="table-scroll"><table class="table"><thead><tr><th>Order</th><th>Waktu</th><th>Tiket</th><th>Qty</th><th>Total</th><th>Metode</th><th>Referensi</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${tx.map(o=>`<tr><td><b>${esc(o.id)}</b></td><td>${date(o.createdAt)}</td><td>${esc(o.ticketName)}</td><td>${o.qty}</td><td>${rupiah(o.total)}</td><td>${esc(o.payment)}</td><td><span class="print-code" style="font-size:10px">${esc(o.paymentRef||'-')}</span></td><td>${statusBadge(o.status)}</td><td><div class="stack">${o.status==='PENDING'?`<button class="btn soft sm" data-order-status="${esc(o.id)}" data-status="PAID">✓ Tandai Paid</button><button class="btn danger sm" data-order-status="${esc(o.id)}" data-status="CANCELLED">Batalkan</button>`:`<span class="muted">${o.paidAt?`Dikonfirmasi ${date(o.paidAt)} oleh ${esc(o.paidBy||'Operator')}`:'Tidak ada aksi'}</span>`}</div></td></tr>`).join('')}</tbody></table></div></section>`}
+
+function paymentPanel(){return `<section class="panel" style="max-width:760px"><h2>Metode Pembayaran Customer</h2><p class="muted">Aktifkan metode yang akan ditampilkan pada halaman pembayaran customer.</p>${[['qris','QRIS','QR berbasis kode demo, bukan QRIS merchant nyata'],['wallet','E-Wallet','Metode dompet digital dalam mode demonstrasi'],['cash','Kasir / Tunai','Pembayaran diterima dan diverifikasi operator']].map(([k,title,desc])=>`<div class="switch-row"><div><b>${title}</b><div class="inline-help">${desc}</div></div><button class="toggle ${db.payment[k]?'on':''}" data-pay-toggle="${k}" aria-pressed="${db.payment[k]}">${db.payment[k]?'Aktif':'Nonaktif'}</button></div>`).join('')}<div class="alert" style="margin-top:20px">Pengaturan ini hanya mengatur pilihan yang ditampilkan, belum menghubungkan payment gateway atau printer.</div></section>`}
+function contentPanel(){let c=db.content;return `<div class="two-cols"><section class="panel"><div class="panel-head"><h2>Editor Halaman Customer</h2><span class="badge green">Terhubung ke etalase</span></div><p class="muted">Ubah informasi utama halaman beranda tanpa menyunting HTML secara manual.</p><div class="help-box" style="margin-bottom:15px">Banner beranda mendukung JPG, PNG, dan WebP. Gambar otomatis diperkecil agar dapat disimpan di browser lokal.</div><label class="field">Upload gambar utama (hero)<input id="heroUpload" type="file" accept="image/jpeg,image/png,image/webp"></label><div class="image-preview" style="margin:12px 0 9px">${c.heroImage?`<img src="${c.heroImage}" alt="Preview banner customer">`:'Belum ada gambar banner'}</div><div class="stack" style="margin-bottom:20px"><button class="btn danger sm" data-action="removeHero" ${!c.heroImage?'disabled':''}>Hapus Gambar</button><small>Rekomendasi rasio 16:9. Maksimum file asli 8 MB.</small></div><form id="contentForm"><div style="display:grid;gap:15px"><label class="field">Posisi Gambar<select name="heroPosition">${['center','top','bottom'].map(x=>`<option value="${x}" ${c.heroPosition===x?'selected':''}>${{center:'Tengah',top:'Atas',bottom:'Bawah'}[x]}</option>`).join('')}</select></label><label class="field">Nama Brand<input name="brand" required maxlength="30" value="${esc(c.brand)}"></label><label class="field">Judul Utama<input name="headline" required maxlength="80" value="${esc(c.headline)}"></label><label class="field">Deskripsi Hero<textarea name="subheadline" maxlength="250">${esc(c.subheadline)}</textarea></label><label class="field">Teks Tombol CTA<input name="cta" required maxlength="35" value="${esc(c.cta)}"></label><label class="field">Teks Pengumuman<input name="announcement" maxlength="140" value="${esc(c.announcement)}"></label></div><div class="form-actions"><button type="submit" class="btn">Simpan Perubahan</button></div></form></section><section class="panel"><div class="panel-head"><h2>Pratinjau Konten</h2><button class="btn soft sm" data-nav="home">Buka Customer ↗</button></div><div style="padding:25px;border-radius:14px;color:#fff;background:${c.heroImage?`linear-gradient(90deg,#11213fcc,#11213f55),url('${c.heroImage}') ${esc(c.heroPosition||'center')}/cover`:'linear-gradient(115deg,#11213f,#2866bc)'}"><div style="font-size:12px;opacity:.8">${esc(c.brand)}</div><h2 style="font-size:27px;margin:25px 0 12px">${esc(c.headline)}</h2><p style="font-size:13px;color:#dbe8ff">${esc(c.subheadline)}</p><span style="display:inline-block;background:white;color:#183a78;padding:10px 13px;border-radius:9px;font-size:12px;font-weight:750">${esc(c.cta)}</span></div><p class="foot-note">Pratinjau memakai konten yang sudah disimpan. Semua tiket berstatus aktif juga otomatis ditampilkan pada halaman customer.</p></section></div>`}
+function usersPanel(){let editing=db.users.find(u=>u.id===state.editing);return `<div class="section-head"><div><h2>Manajemen Pengguna</h2><p>Atur akun dan role pengguna admin yang tersimpan di browser ini.</p></div>${can('users','create')?`<button class="btn" data-action="addUser">＋ Tambah Pengguna</button>`:''}</div><div class="notice">Role membatasi tampilan dan perubahan data dalam aplikasi demo ini. Validasi tiket dilakukan melalui menu Scan Tiket. Untuk produksi tetap gunakan autentikasi dan otorisasi server.</div>${state.editingType==='user'?`<section class="panel editing"><div class="panel-head"><h2>${editing?'Edit Pengguna':'Tambah Pengguna'}</h2><button class="btn ghost sm" data-action="closeEditor">Tutup ✕</button></div><form id="userForm"><div class="form-grid"><label class="field">Nama lengkap<input required name="name" maxlength="60" value="${esc(editing?.name||'')}"></label><label class="field">Username<input required name="username" autocomplete="off" pattern="[a-zA-Z0-9._-]{3,30}" title="3–30 karakter: huruf, angka, titik, garis bawah, atau tanda minus" value="${esc(editing?.username||'')}"></label><label class="field">Role<select name="role">${Object.entries(db.roles).map(([key,val])=>`<option value="${key}" ${editing?.role===key?'selected':''}>${val.label}</option>`).join('')}</select></label><label class="field">Status<select name="active"><option value="true" ${editing?.active!==false?'selected':''}>Aktif</option><option value="false" ${editing?.active===false?'selected':''}>Nonaktif</option></select></label><label class="field" style="grid-column:1/-1">Password ${editing?'baru (kosongkan untuk mempertahankan password lama)':''}<input type="password" name="password" minlength="8" ${editing?'':'required'} autocomplete="new-password" placeholder="Minimal 8 karakter"></label></div><div class="form-actions"><button type="button" class="btn ghost" data-action="closeEditor">Batal</button><button type="submit" class="btn">Simpan Pengguna</button></div></form></section>`:''}<section class="panel"><div class="table-scroll"><table class="table"><thead><tr><th>Nama</th><th>Username</th><th>Role</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${db.users.map(u=>`<tr><td><b>${esc(u.name)}</b></td><td>${esc(u.username)}</td><td><span class="role-pill">${esc(roleName(u.role))}</span></td><td>${statusBadge(u.active?'ACTIVE':'INACTIVE')}</td><td><button class="btn soft sm" data-edit-user="${esc(u.id)}" ${!can('users','update')?'disabled':''}>Edit</button> <button class="btn danger sm" data-delete-user="${esc(u.id)}" ${u.id===state.currentUser?.id||!can('users','delete')?'disabled':''}>Hapus</button></td></tr>`).join('')}</tbody></table></div></section><section class="panel" style="margin-top:18px"><h2>Pengaturan Role</h2><p class="muted">Buat dan kelola hak akses Create, Read, Update, Delete per menu pada halaman <b>Role & Akses</b>.</p><button class="btn soft" data-tab="roles">Buka Manajemen Role →</button></section>`}
+function reportsPanel(){const from=state.reportFrom,to=state.reportTo,status=state.reportStatus,method=state.reportMethod;
+const tx=db.transactions.filter(o=>{const d=(o.createdAt||'').slice(0,10);return (!from||d>=from)&&(!to||d<=to)&&(status==='ALL'||o.status===status)&&(method==='ALL'||o.payment===method)});
+const paid=tx.filter(o=>o.status==='PAID'),revenue=paid.reduce((a,o)=>a+Number(o.total||0),0),packs=paid.reduce((a,o)=>a+Number(o.qty||0),0);
+const methods=[...new Set(db.transactions.map(o=>o.payment).filter(Boolean))];
+const grouped={};for(const o of tx){const d=(o.createdAt||'').slice(0,10)||'Tanpa tanggal';if(!grouped[d])grouped[d]={orders:0,paid:0,total:0,qty:0};grouped[d].orders++;if(o.status==='PAID'){grouped[d].paid++;grouped[d].total+=Number(o.total||0);grouped[d].qty+=Number(o.qty||0)}}
+const rows=Object.entries(grouped).sort((a,b)=>b[0].localeCompare(a[0]));
+return `<div class="section-head"><div><h2>Laporan Penjualan & Operasional</h2><p>Ringkasan pembayaran, tiket, dan check-in berdasarkan data lokal.</p></div>${can('reports','read')?`<button class="btn" data-action="exportReport">↓ Download CSV</button>`:''}</div><section class="panel"><div class="form-grid" style="grid-template-columns:repeat(4,minmax(120px,1fr))"><label class="field">Dari tanggal<input id="reportFrom" type="date" value="${esc(from)}"></label><label class="field">Sampai tanggal<input id="reportTo" type="date" value="${esc(to)}"></label><label class="field">Status<select id="reportStatus">${['ALL','PENDING','PAID','CANCELLED'].map(x=>`<option value="${x}" ${status===x?'selected':''}>${x}</option>`).join('')}</select></label><label class="field">Metode<select id="reportMethod"><option value="ALL">Semua metode</option>${methods.map(m=>`<option value="${esc(m)}" ${method===m?'selected':''}>${esc(m)}</option>`).join('')}</select></label></div></section><div class="metric-grid" style="margin-top:18px"><div class="panel metric"><small>Omzet Terbayar</small><div class="num">${rupiah(revenue)}</div></div><div class="panel metric"><small>Total Pesanan</small><div class="num">${tx.length}</div></div><div class="panel metric"><small>Pesanan Lunas</small><div class="num">${paid.length}</div></div><div class="panel metric"><small>Pack Terjual</small><div class="num">${packs}</div></div></div><section class="panel" style="margin-top:18px"><h2>Rekap Per Hari</h2><div class="table-scroll"><table class="table"><thead><tr><th>Tanggal</th><th>Pesanan</th><th>Lunas</th><th>Pack Terjual</th><th>Omzet</th></tr></thead><tbody>${rows.map(([d,v])=>`<tr><td>${esc(d)}</td><td>${v.orders}</td><td>${v.paid}</td><td>${v.qty}</td><td>${rupiah(v.total)}</td></tr>`).join('')||'<tr><td colspan="5">Tidak ada data pada filter ini.</td></tr>'}</tbody></table></div></section><section class="panel" style="margin-top:18px"><h2>Rekap Transaksi Detail</h2><div class="table-scroll"><table class="table"><thead><tr><th>Waktu</th><th>Kode</th><th>Tiket</th><th>Pack</th><th>Metode</th><th>Total</th><th>Status</th></tr></thead><tbody>${tx.slice().reverse().map(o=>`<tr><td>${date(o.createdAt)}</td><td>${esc(o.id)}</td><td>${esc(o.ticketName)}</td><td>${o.qty}</td><td>${esc(o.payment)}</td><td>${rupiah(o.total)}</td><td>${statusBadge(o.status)}</td></tr>`).join('')||'<tr><td colspan="7">Tidak ada transaksi.</td></tr>'}</tbody></table></div></section>`}
+function exportReport(){if(!requireAccess('reports','read'))return;const tx=db.transactions.filter(o=>{const d=(o.createdAt||'').slice(0,10);return (!state.reportFrom||d>=state.reportFrom)&&(!state.reportTo||d<=state.reportTo)&&(state.reportStatus==='ALL'||o.status===state.reportStatus)&&(state.reportMethod==='ALL'||o.payment===state.reportMethod)});const escCsv=x=>'"'+String(x??'').replace(/"/g,'""')+'"';const columns=['Tanggal','ID Order','Tiket','Pack','Metode','Referensi','Subtotal','Diskon','Total','Status'];const lines=[columns.join(','),...tx.map(o=>[o.createdAt,o.id,o.ticketName,o.qty,o.payment,o.paymentRef,o.subtotal,o.discount,o.total,o.status].map(escCsv).join(','))];downloadBlob(new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}),'mkios-laporan-'+new Date().toISOString().slice(0,10)+'.csv')}
+function rolesPanel(){const editing=db.roles[state.editingRole]||null,perms=editing?.permissions||{},all=Object.values(db.roles);
+return `<div class="section-head"><div><h2>Manajemen Role & Hak Akses</h2><p>Role dapat dibuat sendiri, lalu atur CRUD untuk setiap menu.</p></div>${can('roles','create')?`<button class="btn" data-action="addRole">＋ Buat Role</button>`:''}</div><div class="notice">Role <b>Super Admin</b> adalah role sistem yang tidak dapat dihapus atau dikurangi hak aksesnya. Izin <b>Read</b> diperlukan agar menu dapat ditampilkan. Role custom dapat digunakan pada form Pengguna.</div>${state.editingRole!==null?`<section class="panel editing"><h2>${editing?'Edit Role':'Buat Role Baru'}</h2><form id="roleForm"><label class="field">Nama Role<input required name="label" maxlength="50" value="${esc(editing?.label||'')}" placeholder="Contoh: Supervisor Kasir"></label><div class="table-scroll" style="margin-top:18px"><table class="table"><thead><tr><th>Menu</th><th>Create</th><th>Read</th><th>Update</th><th>Delete</th></tr></thead><tbody>${menus.map(([id,,label])=>`<tr><td><b>${esc(label)}</b></td>${CRUD.map(op=>`<td><input type="checkbox" name="perm_${id}_${op}" ${perms[id]?.[op]?'checked':''} ${editing?.id==='superadmin'?'disabled':''} aria-label="${esc(op)} ${esc(label)}"></td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="hint">Mencentang Create, Update, atau Delete otomatis memberikan izin Read untuk menu tersebut.</p><div class="form-actions"><button class="btn ghost" type="button" data-action="cancelRole">Batal</button><button class="btn" type="submit" ${editing?.id==='superadmin'?'disabled':''}>Simpan Role</button></div></form></section>`:''}<section class="panel"><div class="table-scroll"><table class="table"><thead><tr><th>Role</th><th>Pengguna</th><th>Menu Terlihat</th><th>Aksi</th></tr></thead><tbody>${all.map(r=>`<tr><td><b>${esc(r.label)}</b> ${r.system?'<span class="badge">Bawaan</span>':''}</td><td>${db.users.filter(u=>u.role===r.id).length}</td><td>${Object.values(r.permissions||{}).filter(p=>p.read).length}</td><td><div class="stack">${can('roles','update')?`<button class="btn soft sm" data-edit-role="${esc(r.id)}" ${r.id==='superadmin'?'disabled':''}>Edit Izin</button>`:''}${can('roles','delete')&&!r.system?`<button class="btn danger sm" data-delete-role="${esc(r.id)}">Hapus</button>`:''}</div></td></tr>`).join('')}</tbody></table></div></section>`}
+function settingsPanel(){return `<section class="panel" style="max-width:800px"><h2>Pengaturan & Data Lokal</h2><p class="muted">Aplikasi contoh ini menyimpan konfigurasi pada localStorage browser yang sedang digunakan.</p><div class="notice">Data tidak otomatis tersinkron ke perangkat lain. Untuk lingkungan produksi diperlukan API, database server, autentikasi, dan sistem pembayaran resmi.</div><div class="stack"><button class="btn" data-action="export">↓ Unduh Backup JSON</button><label class="btn ghost" style="cursor:pointer">↑ Impor Backup JSON<input id="importFile" type="file" accept="application/json,.json" hidden></label></div><div class="divider"></div><h3>Ringkasan Penyimpanan</h3><p class="muted">${db.tickets.length} tiket, ${db.promos.length} promo, ${db.transactions.length} transaksi.</p><p class="foot-note">Mengimpor backup mengganti data lokal setelah validasi struktur dasar.</p></section>`}
+function customerPage(){document.body.classList.remove('read-only');const brand=esc(db.content.brand);const nav=`<header class="customer-nav"><div class="brand"><span class="brand-logo">◈</span>${brand}</div><div class="stack"><button class="btn ghost sm" data-nav="home">Beranda</button><button class="btn soft sm" data-nav="print">Cari Tiket</button></div></header>`;let content=state.page==='home'?home():state.page==='ticket'?shop():state.page==='review'?review():state.page==='payment'?checkout():state.page==='success'?success():printPage();return `<div class="customer">${nav}<main class="customer-container">${content}</main><button title="Akses operator" aria-label="Masuk admin" class="admin-only-icon" data-action="openAdmin">⚙</button></div>`}
+function home(){return `<div class="hero ${db.content.heroImage?'has-image':''}" style="${db.content.heroImage?`background-image:linear-gradient(90deg,rgba(11,25,50,.88),rgba(11,25,50,.28)),url('${db.content.heroImage}');background-position:${esc(db.content.heroPosition||'center')}`:''}"><div class="eyebrow" style="color:#b9d8ff">${esc(db.content.announcement)}</div><h1>${esc(db.content.headline)}</h1><p>${esc(db.content.subheadline)}</p><button class="btn" data-nav="ticket">${esc(db.content.cta)} →</button></div><div class="customer-cards"><div class="panel"><h3>01. Pilih Tiket</h3><p class="muted">Pilih jenis dan jumlah tiket yang tersedia.</p></div><div class="panel"><h3>02. Pilih Pembayaran</h3><p class="muted">Tentukan metode pembayaran yang diaktifkan operator.</p></div><div class="panel"><h3>03. Cetak Tiket QR</h3><p class="muted">Setiap pack yang telah dibayar mendapat QR unik yang bisa dipreview, dicetak, dan diunduh.</p></div></div><p class="foot-note">Mode demonstrasi. Transaksi dan konfirmasi pembayaran belum terhubung ke sistem keuangan.</p>`}
+function currentTicket(){return activeTickets().find(t=>t.id===state.selected)||activeTickets()[0]}
+function promoFor(t,qty){const p=db.promos.find(x=>x.code.toUpperCase()===state.applied?.toUpperCase()&&x.status==='ACTIVE'&&(x.used||0)<x.quota&&t.price*qty>=x.minSpend);return p||null}
+function totals(){let t=currentTicket();let subtotal=t?t.price*state.qty:0;let promo=t?promoFor(t,state.qty):null;let discount=promo?Math.min(promo.discount,subtotal):0;return {t,subtotal,promo,discount,total:subtotal-discount}}
+function progress(n){return `<div class="progress">${['Pilih Tiket','Konfirmasi','Pembayaran','Selesai'].map((x,i)=>`<span class="${i<=n?'on':''}">${i+1}. ${x}</span>`).join('')}</div>`}
+function shop(){const tks=activeTickets();if(!tks.length)return `${progress(0)}<div class="panel">${empty('Belum ada tiket tersedia','Operator dapat mengaktifkan tiket melalui dashboard.')}</div>`;let {t,subtotal,discount,total}=totals();return `${progress(0)}<div class="section-head"><div><h1>Pilih Tiket</h1><p class="muted">Pilih pengalaman yang Anda inginkan.</p></div></div><div class="shop-grid"><div class="ticket-options">${tks.map(tk=>`<button class="ticket-option ${t.id===tk.id?'chosen':''}" data-choose-ticket="${esc(tk.id)}"><div class="ticket-icon">${esc(tk.icon)}</div><strong>${esc(tk.name)}</strong><div class="muted" style="font-size:12px;margin-top:8px">${esc(tk.description)}</div><div class="price">${rupiah(tk.price)}</div></button>`).join('')}</div><aside class="panel order-summary"><h2>Ringkasan Pesanan</h2><p class="muted">${esc(t.name)}</p><div class="summary-line"><span>Jumlah tiket</span><div class="qty-control"><button data-action="minusQty">−</button><b>${state.qty}</b><button data-action="plusQty">+</button></div></div><form id="applyPromo"><label class="field">Kode Voucher<input name="promo" placeholder="Contoh: HEMAT10" value="${esc(state.promo)}"></label><button class="btn soft sm" style="margin-top:9px" type="submit">Gunakan Voucher</button></form>${state.error?`<p class="error-text">${esc(state.error)}</p>`:''}${state.applied?`<div class="hint" style="margin-top:10px">Promo dipakai: <b>${esc(state.applied)}</b> <button class="btn sm ghost" data-action="removePromo">Hapus</button></div>`:''}<div class="divider"></div><div class="summary-line"><span>Subtotal</span><b>${rupiah(subtotal)}</b></div><div class="summary-line"><span>Diskon</span><b>− ${rupiah(discount)}</b></div><div class="summary-line total"><span>Total</span><span>${rupiah(total)}</span></div><button class="btn wide" data-nav="review" style="margin-top:12px">Lanjutkan →</button></aside></div>`}
+function review(){let {t,subtotal,discount,total}=totals();if(!t)return shop();return `${progress(1)}<section class="panel" style="max-width:710px;margin:auto"><h1>Konfirmasi Pesanan</h1><p class="muted">Periksa ringkasan sebelum memilih pembayaran.</p><div class="divider"></div><div class="summary-line"><span>Tiket</span><b>${esc(t.name)}</b></div><div class="summary-line"><span>Jumlah</span><b>${state.qty}</b></div><div class="summary-line"><span>Subtotal</span><b>${rupiah(subtotal)}</b></div><div class="summary-line"><span>Diskon</span><b>− ${rupiah(discount)}</b></div><div class="divider"></div><div class="summary-line total"><span>Total</span><span>${rupiah(total)}</span></div><div class="stack" style="justify-content:flex-end;margin-top:22px"><button class="btn ghost" data-nav="ticket">← Kembali</button><button class="btn" data-nav="payment">Pilih Pembayaran →</button></div></section>`}
+function checkout(){let {t,total}=totals();if(!t)return shop();let methods=[['qris','QRIS','Pembayaran QR'],['wallet','E-Wallet','Dompet Digital'],['cash','Kasir / Tunai','Pembayaran di lokasi']].filter(x=>db.payment[x[0]]);const digital=state.method==='qris'||state.method==='wallet';return `${progress(2)}<section class="panel" style="max-width:820px;margin:auto"><h1>Pembayaran</h1><p class="muted">Total tagihan: <b>${rupiah(total)}</b>. Pilih metode pembayaran untuk menyelesaikan pesanan demo.</p>${methods.length?`<div class="payment-options">${methods.map(([k,title,desc])=>`<button class="payment-choice ${state.method===k?'chosen':''}" data-method="${k}"><b>${title}</b><div class="hint">${desc}</div></button>`).join('')}</div>${state.method?paymentMethodPreview(state.method,total,t,state.qty):`<div class="notice" style="margin-top:18px">Pilih salah satu metode pembayaran untuk menampilkan simulasi.</div>`}<div class="stack" style="justify-content:flex-end;margin-top:20px"><button class="btn ghost" data-nav="review">← Kembali</button>${digital?`<button class="btn" data-action="confirmDigitalPayment" ${!state.method?'disabled':''}>✓ Konfirmasi Pembayaran & Selesaikan</button>`:`<button class="btn" data-action="placeOrder" ${!state.method?'disabled':''}>Buat Pesanan untuk Kasir →</button>`}</div>${digital?`<div class="hint" style="margin-top:10px;text-align:right">Mode simulasi: tombol konfirmasi langsung mengubah transaksi menjadi <b>PAID</b> dan membuka tiket QR.</div>`:`<div class="hint" style="margin-top:10px;text-align:right">Kasir: pesanan dibuat <b>PENDING</b>. Status dibayar diperbarui oleh operator melalui Dashboard Admin.</div>`}`:`<div class="alert">Metode pembayaran belum tersedia. Silakan hubungi operator.</div><button class="btn ghost" data-nav="review">Kembali</button>`}</section>`}
+
+function success(){let o=db.transactions.find(x=>x.id===state.orderId);if(!o)return home();return `${progress(3)}<section class="panel success-card"><div class="success-mark">✓</div><h1>Pesanan Berhasil Dibuat</h1><p>Pesanan tersimpan dengan status ${statusBadge(o.status)}.</p><div class="print-code">${esc(o.id)}</div><p><b>${esc(o.ticketName)}</b> × ${o.qty}<br>Total ${rupiah(o.total)}<br>Metode ${esc(o.payment)}<br>Referensi ${esc(o.paymentRef||'-')}</p>${o.payment==='QRIS'?`<div class="notice">QRIS simulasi sudah dibuat. Pembayaran belum dianggap lunas sampai status transaksi diubah menjadi PAID.</div>`:o.payment==='E-Wallet'?`<div class="notice">Kode E-Wallet simulasi: <b>${esc(o.paymentRef)}</b>. Pembayaran belum dianggap lunas sampai status transaksi diubah menjadi PAID.</div>`:`<div class="notice">Pembayaran dilakukan di kasir. Tunjukkan nomor pesanan <b>${esc(o.id)}</b>. Setelah uang diterima, operator mengubah status menjadi PAID di dashboard admin.</div>`}<div class="divider"></div>${ticketPreviewMarkup(o,{showActions:true})}<div class="stack" style="justify-content:center;margin-top:20px"><button class="btn" data-nav="print">Cari / Cetak Tiket</button><button class="btn ghost" data-nav="home">Beranda</button></div></section>`}
+function printPage(){let code=state.printSearch||state.orderId||'';let o=db.transactions.find(x=>x.id.toUpperCase()===code.trim().toUpperCase());const count=o?Math.max(0,Math.min(99,Math.floor(Number(o.qty)||0))):0;const paid=o?.status==='PAID';return `${progress(3)}<section class="panel print-screen"><h1>Cari & Lihat Tiket</h1><p class="muted print-search-description">Masukkan nomor pesanan untuk menampilkan detail dan QR tiket per pack.</p><form id="printForm" class="stack"><input name="code" class="search" style="flex:1;min-width:220px" placeholder="Contoh: ORD-MK-..." value="${esc(code)}" required><button class="btn" type="submit">Cari Pesanan</button></form>${state.error?`<p class="error-text">${esc(state.error)}</p>`:''}${o?`<div class="notice no-print" style="margin-top:18px"><b>${esc(o.id)}</b> · ${esc(o.ticketName)} · ${count} pack · ${statusBadge(o.status)}<div class="hint">QR tiket ditampilkan satu per pack. QR tetap tersimpan untuk pesanan yang sama.</div></div>${!paid?`<div class="alert no-print">${o.status==='CANCELLED'?'Pesanan dibatalkan. QR tidak dapat digunakan.':'Pembayaran masih PENDING. QR dapat dipreview, tetapi check-in wahana akan ditolak sampai status PAID.'}</div>`:`<div class="print-tools"><button class="btn" data-action="print">🖨 Cetak ${count} Tiket</button><span class="muted">Total ${count} tiket untuk ${count} pack.</span></div>`}<div class="ticket-print-sheet">${Array.from({length:count},(_,i)=>{const serial=ticketQrSerial(o,i),qr=makeQrSvg(ticketQrPayload(o,i),230);return `<article class="print-ticket"><div class="eyebrow">${esc(db.content.brand)} • TIKET MASUK</div><h2 style="margin:11px 0 5px">${esc(o.ticketName)}</h2><small>Pack ${i+1} dari ${count}</small><div class="qr-box">${qr}</div><div class="barcode-text">${esc(serial)}</div><div class="divider" style="margin:12px 0"></div><div class="summary-line"><span>Nomor pesanan</span><b style="font-size:11px">${esc(o.id)}</b></div><div class="summary-line"><span>Tanggal</span><b>${date(o.createdAt)}</b></div><div class="summary-line"><span>Status</span><b>${esc(o.status)}</b></div><small>${paid?'QR berlaku untuk 1 pack. Tunjukkan QR kepada petugas untuk validasi masuk.':'QR hanya preview sampai pembayaran PAID.'}</small>${paid?`<div class="ticket-actions no-print"><button class="btn soft sm" data-download-ticket="${esc(o.id)}" data-ticket-index="${i}">↓ Unduh PNG</button></div>`:''}</article>`}).join('')}</div>${paid?`<div class="stack no-print" style="justify-content:center;margin-top:18px"><button class="btn" data-action="print">🖨 Cetak Semua Tiket</button></div>`:''}`:code&&state.printSearch?`<div class="empty">Pesanan tidak ditemukan pada penyimpanan browser ini.</div>`:''}</section>`}
+
+function refreshTable(){const el=$('tableSearch');if(el){let pos=el.selectionStart;render();let next=$('tableSearch');if(next){next.focus();next.setSelectionRange(pos,pos)}}else render()}
+function ensureEditing(type,id){state.editingType=type;state.editing=id;state.page='admin';state.adminTab=type==='ticket'?'tickets':'promos';render();setTimeout(()=>document.querySelector('.editing input')?.focus(),0)}
+document.addEventListener('click',e=>{const btn=e.target.closest('button[data-action],button[data-nav],button[data-tab],button[data-choose-ticket],button[data-method],button[data-edit-ticket],button[data-delete-ticket],button[data-toggle-ticket],button[data-edit-promo],button[data-delete-promo],button[data-toggle-promo],button[data-pay-toggle],button[data-order-status],button[data-edit-user],button[data-delete-user],button[data-download-ticket],button[data-edit-role],button[data-delete-role]');if(!btn)return;
+if(btn.dataset.nav){if(btn.dataset.nav==='review'&&!currentTicket())return toast('Tidak ada tiket aktif.',true);if(btn.dataset.nav==='payment'&&!currentTicket())return toast('Pilih tiket terlebih dahulu.',true);navigate(btn.dataset.nav);return}if(btn.dataset.tab){admin(btn.dataset.tab);return}const targetEdit=btn.dataset.editTicket||btn.dataset.deleteTicket||btn.dataset.toggleTicket?'tickets':btn.dataset.editPromo||btn.dataset.deletePromo||btn.dataset.togglePromo?'promos':btn.dataset.payToggle?'payment':btn.dataset.orderStatus?'transactions':btn.dataset.editUser||btn.dataset.deleteUser?'users':null;if(targetEdit){const act=btn.dataset.deleteTicket||btn.dataset.deletePromo||btn.dataset.deleteUser?'delete':btn.dataset.editTicket||btn.dataset.editPromo||btn.dataset.editUser||btn.dataset.toggleTicket||btn.dataset.togglePromo||btn.dataset.payToggle||btn.dataset.orderStatus?'update':'update';if(!requireAccess(targetEdit,act))return;}
+if(btn.dataset.editRole){if(!requireAccess('roles','update'))return;state.editingRole=btn.dataset.editRole;render();return}if(btn.dataset.deleteRole){if(!requireAccess('roles','delete'))return;const r=db.roles[btn.dataset.deleteRole];if(!r||r.system)return toast('Role bawaan tidak bisa dihapus.',true);if(db.users.some(u=>u.role===r.id))return toast('Role masih digunakan oleh pengguna.',true);delete db.roles[r.id];save();render();toast('Role dihapus.');return}
+if(btn.dataset.chooseTicket){state.selected=btn.dataset.chooseTicket;state.applied=null;state.error='';render();return}if(btn.dataset.method){state.method=btn.dataset.method;render();return}
+if(btn.dataset.editTicket){ensureEditing('ticket',btn.dataset.editTicket);return}if(btn.dataset.editPromo){ensureEditing('promo',btn.dataset.editPromo);return}
+if(btn.dataset.toggleTicket){let t=db.tickets.find(x=>x.id===btn.dataset.toggleTicket);if(t){t.status=t.status==='ACTIVE'?'INACTIVE':'ACTIVE';save();render();toast('Status tiket diperbarui.')}return}
+if(btn.dataset.togglePromo){let p=db.promos.find(x=>x.id===btn.dataset.togglePromo);if(p){p.status=p.status==='ACTIVE'?'INACTIVE':'ACTIVE';save();render();toast('Status promo diperbarui.')}return}
+if(btn.dataset.deleteTicket){let t=db.tickets.find(x=>x.id===btn.dataset.deleteTicket);if(t){state.editingType='deleteTicket';state.editing=t.id;render();showDeleteConfirm('ticket',t)}return}
+if(btn.dataset.deletePromo){let p=db.promos.find(x=>x.id===btn.dataset.deletePromo);if(p){state.editingType='deletePromo';state.editing=p.id;render();showDeleteConfirm('promo',p)}return}
+if(btn.dataset.editUser){state.editing=btn.dataset.editUser;state.editingType='user';render();return}if(btn.dataset.deleteUser){let u=db.users.find(x=>x.id===btn.dataset.deleteUser);if(!u)return;if(u.id===state.currentUser?.id)return toast('Anda tidak dapat menghapus akun sendiri.',true);if(u.role==='superadmin'&&db.users.filter(x=>x.active&&x.role==='superadmin').length<=1)return toast('Super Admin terakhir tidak boleh dihapus.',true);db.users=db.users.filter(x=>x.id!==u.id);save();render();toast('Pengguna dihapus.');return}if(btn.dataset.payToggle){let k=btn.dataset.payToggle;db.payment[k]=!db.payment[k];save();render();toast('Pengaturan pembayaran diperbarui.');return}
+if(btn.dataset.downloadTicket){downloadTicketCard(btn.dataset.downloadTicket,Number(btn.dataset.ticketIndex||0));return}
+if(btn.dataset.orderStatus){if(btn.dataset.status==='PAID')markOrderPaid(btn.dataset.orderStatus);else if(btn.dataset.status==='CANCELLED')markOrderCancelled(btn.dataset.orderStatus);return}
+let action=btn.dataset.action;if(!action)return;const actionTab={addTicket:'tickets',addPromo:'promos',confirmDelete:btn.dataset.kind==='ticket'?'tickets':'promos',export:'settings',addUser:'users',removeHero:'content',openTicketScanner:'scan'}[action];if(actionTab&&!requireAccess(actionTab,action==='addTicket'||action==='addPromo'||action==='addUser'?'create':action==='confirmDelete'?'delete':'update'))return;
+switch(action){case 'openAdmin':navigate(state.logged?'admin':'login');break;case 'openTicketScanner':if(!requireAccess('scan','update'))return;stopScanner();state.scanOpen=true;state.scanError='';state.scanResult=null;render();break;case 'stopTicketScanner':stopScanner();state.scanOpen=false;state.scanError='';const se=$('scanStatus');if(se)se.textContent='Kamera dihentikan. Input manual tetap tersedia.';break;case 'closeScanner':state.scanOpen=false;state.scanError='';state.scanResult=null;stopScanner();render();break;case 'closeUserQr':render();break;case 'logout':state.logged=false;state.currentUser=null;state.adminTab='dashboard';navigate('home');break;case 'addTicket':ensureEditing('ticket','');break;case 'addPromo':ensureEditing('promo','');break;case 'addRole':if(!requireAccess('roles','create'))return;state.editingRole='';render();break;case 'cancelRole':state.editingRole=null;render();break;case 'exportReport':exportReport();break;case 'addUser':state.editing=null;state.editingType='user';render();break;case 'removeHero':db.content.heroImage='';save();render();toast('Gambar banner dihapus.');break;case 'closeEditor':state.editing=null;render();break;case 'minusQty':state.qty=Math.max(1,state.qty-1);state.applied=null;render();break;case 'plusQty':state.qty=Math.min(99,state.qty+1);state.applied=null;render();break;case 'removePromo':state.applied=null;state.promo='';state.error='';render();break;case 'placeOrder':placeOrder();break;case 'confirmDigitalPayment':placeOrder('PAID');break;case 'print':window.print();break;case 'export':exportDB();break;case 'confirmDelete':deleteSelected(btn.dataset.kind);break;case 'cancelDelete':state.editing=null;state.editingType=null;render();break;}}
+);
+function showDeleteConfirm(kind,obj){const name=kind==='ticket'?obj.name:obj.code;let host=document.querySelector('.admin-main');let card=document.createElement('div');card.id='deleteConfirm';card.className='panel editing';card.innerHTML=`<h2>Hapus ${kind==='ticket'?'tiket':'promo'}?</h2><p>Anda akan menghapus <b>${esc(name)}</b>. Tindakan ini tidak dapat dibatalkan. Transaksi lama tetap tersimpan.</p><div class="stack"><button class="btn danger" data-action="confirmDelete" data-kind="${kind}">Ya, Hapus</button><button class="btn ghost" data-action="cancelDelete">Batal</button></div>`;host.insertBefore(card,host.children[1]||null);card.scrollIntoView({behavior:'smooth',block:'start'})}
+function deleteSelected(kind){if(kind==='ticket')db.tickets=db.tickets.filter(x=>x.id!==state.editing);else db.promos=db.promos.filter(x=>x.id!==state.editing);state.editing=null;state.editingType=null;save();render();toast('Data berhasil dihapus.')}
+function makePaymentRef(method,orderId=''){const clean=String(orderId||'').replace(/[^A-Z0-9]/gi,'').slice(-10);const seed=clean||Date.now().toString(36).toUpperCase();if(method==='wallet')return 'EW-'+seed+'-'+Math.floor(100000+Math.random()*900000);if(method==='cash')return 'KSR-'+seed;return 'QRIS-'+seed+'-'+Math.floor(1000+Math.random()*9000)}
+function paymentQrPayload(order){return `MKIOS-PAY|QRIS|${order.id}|${order.total}|${order.paymentRef}`}
+function ticketPreviewMarkup(order,{showActions=false}={}){const count=Math.max(0,Math.min(99,Math.floor(Number(order?.qty)||0)));if(!order||!count)return '';const paid=order.status==='PAID';return `<section class="ticket-preview-panel"><div class="panel-head"><div><h2>Preview Tiket</h2><p class="muted">QR dibuat per pack. QR dapat diterbitkan setelah pembayaran berstatus PAID.</p></div><span class="badge ${paid?'green':''}">${paid?'Tiket Aktif':'Preview • Belum Aktif'}</span></div><div class="ticket-preview-grid">${Array.from({length:count},(_,i)=>{const serial=ticketQrSerial(order,i),qr=makeQrDataUrl(ticketQrPayload(order,i),190);return `<article class="ticket-preview-card"><div class="eyebrow">${esc(db.content.brand)} • QR PASS</div><h3>${esc(order.ticketName)}</h3><div class="ticket-pack">Pack ${i+1} / ${count}</div><div class="qr-box large">${makeQrSvg(ticketQrPayload(order,i),230)}</div><div class="barcode-text">${esc(serial)}</div><div class="summary-line"><span>Pesanan</span><b>${esc(order.id)}</b></div><div class="summary-line"><span>Pembayaran</span><b>${esc(order.payment)}</b></div><div class="summary-line"><span>Status</span><b>${esc(order.status)}</b></div>${showActions&&paid?`<button class="btn soft sm wide no-print\" data-download-ticket="${esc(order.id)}\" data-ticket-index="${i}\">↓ Unduh Tiket PNG</button>`:''}${!paid?`<small class="preview-note">QR ini hanya preview. Check-in akan ditolak sampai pembayaran lunas.</small>`:''}</article>`}).join('')}</div></section>`}
+function paymentMethodPreview(method,total,ticket,qty){if(method==='qris'){const payload=`MKIOS-PAY|QRIS|SIMULASI|${total}|${ticket?.id||''}|${qty}`;const qr=makeQrSvg(payload,260);const ref=makePaymentRef('qris',ticket?.id||'');return `<div class="payment-demo qris-demo"><div><div class="eyebrow">SIMULASI QRIS</div><h3>Scan QR untuk membayar</h3><p class="muted">QR ini dummy. Tidak terhubung ke bank, QRIS merchant, atau payment gateway.</p><div class="qr-box large">${qr}</div></div><div class="payment-detail"><div class="summary-line"><span>Total</span><b>${rupiah(total)}</b></div><div class="summary-line"><span>Merchant</span><b>${esc(db.content.brand)}</b></div><div class="summary-line"><span>Referensi</span><b>${esc(ref)}</b></div><small>Simulasi hanya menampilkan instruksi. Status transaksi tetap PENDING sampai operator mengonfirmasi pembayaran.</small></div></div>`}if(method==='wallet'){const code=makePaymentRef('wallet',ticket?.id||'');return `<div class="payment-demo"><div class="eyebrow">E-WALLET DEMO</div><h3>Kode pembayaran</h3><div class="wallet-code">${esc(code)}</div><div class="summary-line"><span>Total</span><b>${rupiah(total)}</b></div><div class="summary-line"><span>Merchant</span><b>${esc(db.content.brand)}</b></div><p class="muted">Gunakan kode di atas sebagai referensi pembayaran pada simulasi e-wallet.</p><small>Pesanan tetap PENDING sampai operator mengonfirmasi pembayaran.</small></div>`}return `<div class="payment-demo"><div class="eyebrow">PEMBAYARAN DI KASIR</div><h3>Tunjukkan nomor pesanan ke kasir</h3><div class="cash-order-preview" id="cashOrderPreview">Nomor pesanan dibuat setelah tombol di bawah ditekan.</div><div class="summary-line"><span>Total</span><b>${rupiah(total)}</b></div><p class="muted">Setelah <b>Buat Pesanan Demo</b>, sistem memberikan nomor pesanan. Kasir menerima pembayaran berdasarkan nomor tersebut. Operator kemudian mengubah status menjadi PAID dari dashboard admin.</p></div>`}
+function placeOrder(forcedStatus=null){let {t,discount,total,promo}=totals();if(!t||!db.payment[state.method])return toast('Pilih metode pembayaran yang aktif.',true);const id=ident('ORD-MK');const payment=({qris:'QRIS',wallet:'E-Wallet',cash:'Kasir / Tunai'})[state.method];const status=forcedStatus||'PENDING';let order={id,ticketId:t.id,ticketName:t.name,unitPrice:t.price,qty:state.qty,subtotal:t.price*state.qty,discount,total,promoCode:promo?.code||'',payment,status,createdAt:new Date().toISOString(),paymentRef:makePaymentRef(state.method,id),paidAt:status==='PAID'?new Date().toISOString():null,paidBy:status==='PAID'?'SIMULASI CUSTOMER':null};db.transactions.push(order);if(promo)promo.used=(promo.used||0)+1;if(!save())return;state.orderId=order.id;state.printSearch=order.id;state.applied=null;state.promo='';state.selected=null;state.error='';state.method='';navigate('success')}
+function exportDB(){let blob=new Blob([JSON.stringify({version:28,exportedAt:new Date().toISOString(),...db},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mkios-v28-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Backup JSON berhasil diekspor.')}
+document.addEventListener('submit',async e=>{const form=e.target;if(!['loginForm','ticketForm','promoForm','contentForm','userForm','applyPromo','printForm','manualScanForm','roleForm'].includes(form.id))return;e.preventDefault();const v=Object.fromEntries(new FormData(form).entries());
+if(form.id==='manualScanForm'){if(!requireAccess('scan','update'))return;const raw=String(v.qrCode||'').trim();if(!raw)return toast('Masukkan kode QR tiket.',true);stopScanner();state.scanOpen=false;await processTicketQr(raw);return}
+if(form.id==='loginForm'){const u=$('loginUser').value.trim(),p=$('loginPass').value;try{if(await signIn(u,p))admin('dashboard');else $('loginError').textContent='Username atau password tidak sesuai atau akun dinonaktifkan.'}catch{$('loginError').textContent='Browser tidak mendukung autentikasi demo ini.'}return}
+if(form.id==='roleForm'){const existing=db.roles[state.editingRole];if(!requireAccess('roles',existing?'update':'create'))return;if(existing?.id==='superadmin')return toast('Role Super Admin terkunci.',true);const label=String(v.label||'').trim();if(label.length<3)return toast('Nama role minimal 3 karakter.',true);if(Object.values(db.roles).some(r=>r.id!==existing?.id&&r.label.toLowerCase()===label.toLowerCase()))return toast('Nama role sudah digunakan.',true);const id=existing?.id||ident('ROLE');const permissions={};for(const menu of MENU_IDS){permissions[menu]={};for(const op of CRUD)permissions[menu][op]=Boolean(v['perm_'+menu+'_'+op]);if(CRUD.some(op=>op!=='read'&&permissions[menu][op]))permissions[menu].read=true}db.roles[id]={id,label,permissions,system:existing?.system||false};state.editingRole=null;save();render();toast('Role dan hak akses disimpan.');return}
+if(form.id==='userForm'){if(!requireAccess('users',state.editing?'update':'create'))return;const existing=db.users.find(x=>x.id===state.editing),username=String(v.username||'').trim(),name=String(v.name||'').trim(),password=String(v.password||''),newRole=db.roles[v.role]?v.role:'viewer',active=v.active==='true';if(!/^[a-zA-Z0-9._-]{3,30}$/.test(username)||!name)return toast('Nama atau username tidak valid.',true);if(db.users.some(x=>x.username.toLowerCase()===username.toLowerCase()&&x.id!==state.editing))return toast('Username sudah dipakai.',true);if((!existing||password)&&password.length<8)return toast('Password minimal 8 karakter.',true);if(existing?.id===state.currentUser?.id&&(!active||newRole!==existing.role))return toast('Tidak dapat menonaktifkan atau menurunkan role akun sendiri.',true);if(existing?.role==='superadmin'&&existing.active&&(!active||newRole!=='superadmin')&&db.users.filter(x=>x.active&&x.role==='superadmin').length<=1)return toast('Harus ada minimal satu Super Admin aktif.',true);let u=existing||{id:ident('USR')};u.name=name;u.username=username;u.role=newRole;u.active=active;if(password){u.salt=newSalt();u.hash=await digest(password,u.salt)}if(!u.loginSecret)u.loginSecret=randomSecret();if(!existing)db.users.push(u);if(u.id===state.currentUser?.id)state.currentUser={id:u.id,name:u.name,role:u.role};save();state.editing=null;state.editingType=null;render();toast('Pengguna berhasil disimpan.');return}
+if(form.id==='ticketForm'){if(!requireAccess('tickets',state.editing?'update':'create'))return;let name=v.name.trim(),price=Number(v.price);if(!name||!Number.isFinite(price)||price<0)return toast('Nama dan harga tiket tidak valid.',true);let item={id:state.editing||ident('TKT'),name,price,icon:v.icon.trim()||'🎟',description:v.description.trim(),status:v.status==='INACTIVE'?'INACTIVE':'ACTIVE'};if(state.editing){let i=db.tickets.findIndex(x=>x.id===state.editing);if(i>=0)db.tickets[i]=item}else db.tickets.push(item);save();state.editing=null;render();toast('Tiket berhasil disimpan.');return}
+if(form.id==='promoForm'){if(!requireAccess('promos',state.editing?'update':'create'))return;let code=v.code.trim().toUpperCase(),discount=Number(v.discount),minSpend=Number(v.minSpend),quota=Number(v.quota);if(!code||discount<=0||minSpend<0||!Number.isInteger(quota)||quota<1)return toast('Data promo tidak valid.',true);if(db.promos.some(x=>x.code===code&&x.id!==state.editing))return toast('Kode promo sudah digunakan.',true);let old=db.promos.find(x=>x.id===state.editing);if(old&&quota<(old.used||0))return toast('Kuota tidak boleh kurang dari jumlah penggunaan.',true);let item={id:state.editing||ident('PRM'),code,discount,minSpend,quota,used:old?.used||0,status:v.status==='INACTIVE'?'INACTIVE':'ACTIVE'};if(old)Object.assign(old,item);else db.promos.push(item);save();state.editing=null;render();toast('Promo berhasil disimpan.');return}
+if(form.id==='contentForm'){if(!requireAccess('content','update'))return;for(let k of ['brand','headline','subheadline','cta','announcement','heroPosition'])db.content[k]=String(v[k]||'').trim();save();render();toast('Konten halaman customer berhasil disimpan.');return}
+if(form.id==='applyPromo'){state.promo=v.promo.trim().toUpperCase();const t=currentTicket();let p=db.promos.find(x=>x.code===state.promo&&x.status==='ACTIVE'&&(x.used||0)<x.quota&&t&&t.price*state.qty>=x.minSpend);state.applied=p?p.code:null;state.error=p?'':'Kode tidak valid, kuota habis, atau minimum belanja belum terpenuhi.';render();return}
+if(form.id==='printForm'){state.printSearch=v.code.trim();state.error='';render();return}});
+document.addEventListener('input',e=>{if(e.target.id==='tableSearch'){state.search=e.target.value;refreshTable()}});document.addEventListener('change',async e=>{if(e.target.id==='scanImageUpload'){const file=e.target.files?.[0];if(file)await scanImageFile(file);return}if(['reportFrom','reportTo','reportStatus','reportMethod'].includes(e.target.id)){state[e.target.id]=e.target.value;render();return} if(e.target.id==='filterStatus'){state.statusFilter=e.target.value;render()}if(e.target.id==='heroUpload'){if(!requireAccess('content','update'))return;const file=e.target.files?.[0];if(!file)return;try{if(!['image/jpeg','image/png','image/webp'].includes(file.type))throw Error('Gunakan gambar JPG, PNG, atau WebP.');if(file.size>8_000_000)throw Error('Ukuran gambar maksimal 8 MB.');const image=await createImageBitmap(file);const scale=Math.min(1,1400/image.width,900/image.height);const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(image.width*scale));canvas.height=Math.max(1,Math.round(image.height*scale));canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);image.close();const data=canvas.toDataURL('image/jpeg',.78);if(data.length>2_300_000)throw Error('Gambar hasil kompresi terlalu besar.');const previous=db.content.heroImage;db.content.heroImage=data;if(!save()){db.content.heroImage=previous;return}render();toast('Banner berhasil diunggah dan ditampilkan pada beranda.')}catch(err){toast(err.message||'Gagal memproses gambar.',true)}return}if(e.target.id==='importFile'){if(!requireAccess('settings','update'))return;const f=e.target.files?.[0];if(!f)return;try{if(f.size>3_000_000)throw Error('File terlalu besar.');let d=JSON.parse(await f.text());if(!Array.isArray(d.tickets)||!Array.isArray(d.promos)||!Array.isArray(d.transactions)||!d.content||!d.payment)throw Error('Struktur backup tidak valid.');if(d.tickets.some(x=>typeof x.name!=='string'||!Number.isFinite(x.price))||d.transactions.some(x=>!x.id||!Number.isFinite(x.total)))throw Error('Isi data tidak valid.');db={...clone(defaults),...d,payment:{...defaults.payment,...d.payment},content:{...defaults.content,...d.content},settings:{...defaults.settings,...(d.settings||{})}};if(!Array.isArray(db.users))db.users=[];initRoles();ensureUserQrSecrets();save();render();toast('Backup berhasil diimpor.')}catch(err){toast(err.message||'Gagal membaca file.',true)}}});
+ensureUserQrSecrets();
+initRoles();
+render();
+})();
+</script>
+</body></html>
